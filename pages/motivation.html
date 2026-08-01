@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivation | STUPID</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="meditation.html" class="nav-link">Meditate</a>
+                <a href="motivation.html" class="nav-link active">Motivation</a>
+                <a href="tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero motivation-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Motivation</h1>
+                <p class="page-subtitle">
+                    Get inspired by quotes that sound deep but mean nothing. Perfect for LinkedIn posts.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number">0</span>
+                        <span class="page-stat-label">Goals Achieved</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number">∞</span>
+                        <span class="page-stat-label">Quotes Read</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number">100%</span>
+                        <span class="page-stat-label">Regret</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder motivation">
+                    <div class="placeholder-icon">🏔️</div>
+                    <p class="placeholder-text">Mountain you'll never climb</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Generator -->
+    <section class="quote-generator">
+        <div class="generator-content">
+            <div class="generator-header">
+                <h2 class="generator-title">Daily Motivation Generator™</h2>
+                <p class="generator-subtitle">
+                    Get a fresh dose of empty inspiration every time you refresh. Or don't. We don't care.
+                </p>
+            </div>
+            <div class="quote-display">
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text" id="motivational-quote">
+                        The only way to do great work is to love what you do. 
+                        <span class="quote-highlight">(But you don't, so give up.)</span>
+                    </p>
+                    <div class="quote-mark closing">"</div>
+                    <div class="quote-author">
+                        <span class="author-name">- Some Guy Who Probably Didn't Say This</span>
+                    </div>
+                </div>
+                <div class="quote-actions">
+                    <button class="cta-button primary" id="new-quote">
+                        <span class="button-text">New Quote</span>
+                        <span class="button-subtext">(It's the same as the old one)</span>
+                    </button>
+                    <button class="cta-button outline share-button">
+                        <span class="button-text">Share</span>
+                        <span class="button-subtext">(No one will care)</span>
+                    </button>
+                    <button class="cta-button outline save-button">
+                        <span class="button-text">Save</span>
+                        <span class="button-subtext">(You'll never look at it again)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Categories -->
+    <section class="quote-categories">
+        <div class="section-header">
+            <h2 class="section-title">Browse by Category of Cringe</h2>
+            <p class="section-subtitle">
+                Find the perfect empty platitude for any occasion. Or don't. We're not your supervisor.
+            </p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">💼</div>
+                <h3 class="category-title">Career</h3>
+                <p class="category-description">
+                    Quotes to make you feel bad about your job. Perfect for Monday mornings.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#Hustle</span>
+                    <span class="tag">#Grind</span>
+                    <span class="tag">#Burnout</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">❤️</div>
+                <h3 class="category-title">Love & Relationships</h3>
+                <p class="category-description">
+                    Quotes about love that will make you feel lonely. Great for Valentine's Day.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#Soulmate</span>
+                    <span class="tag">#ForeverAlone</span>
+                    <span class="tag">#Settle</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">💪</div>
+                <h3 class="category-title">Fitness</h3>
+                <p class="category-description">
+                    Quotes to motivate you to work out. You'll ignore them and eat chips instead.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#Gains</span>
+                    <span class="tag">#NoPainNoGain</span>
+                    <span class="tag">#Netflix</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎓</div>
+                <h3 class="category-title">Success</h3>
+                <p class="category-description">
+                    Quotes about success from people who are already successful. You'll hate them.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#HustlePorn</span>
+                    <span class="tag">#5AMClub</span>
+                    <span class="tag">#TrustFund</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">😂</div>
+                <h3 class="category-title">Humor</h3>
+                <p class="category-description">
+                    Funny quotes to make you laugh. Or groan. Or both. Probably both.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#DadJokes</span>
+                    <span class="tag">#Puns</span>
+                    <span class="tag">#EyeRoll</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌱</div>
+                <h3 class="category-title">Personal Growth</h3>
+                <p class="category-description">
+                    Quotes about growing as a person. You'll read them and remain exactly the same.
+                </p>
+                <div class="category-tags">
+                    <span class="tag">#SelfHelp</span>
+                    <span class="tag">#Journey</span>
+                    <span class="tag">#StillBroken</span>
+                </div>
+                <button class="cta-button outline category-button">
+                    Explore
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivation Challenges -->
+    <section class="motivation-challenges">
+        <div class="section-header">
+            <h2 class="section-title">30-Day Motivation Challenges</h2>
+            <p class="section-subtitle">
+                Commit to daily motivation. Fail by day 3. Feel bad about yourself. Repeat.
+            </p>
+        </div>
+        <div class="challenges-grid">
+            <div class="challenge-card motivation">
+                <div class="challenge-badge">Day 1</div>
+                <h3 class="challenge-title">Write Down Your Goals</h3>
+                <p class="challenge-description">
+                    Write down 3 goals you want to achieve this month. Lose the paper by tomorrow.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button class="cta-button primary challenge-button">
+                    Start Challenge
+                </button>
+            </div>
+            <div class="challenge-card motivation">
+                <div class="challenge-badge">Day 2</div>
+                <h3 class="challenge-title">Positive Affirmations</h3>
+                <p class="challenge-description">
+                    Say nice things to yourself in the mirror. Feel awkward. Never do it again.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button class="cta-button primary challenge-button">
+                    Start Challenge
+                </button>
+            </div>
+            <div class="challenge-card motivation">
+                <div class="challenge-badge">Day 3</div>
+                <h3 class="challenge-title">Visualize Success</h3>
+                <p class="challenge-description">
+                    Close your eyes and imagine achieving your goals. Open them and realize nothing has changed.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button class="cta-button primary challenge-button">
+                    Start Challenge
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories (Satirical) -->
+    <section class="success-stories">
+        <div class="section-header">
+            <h2 class="section-title">Success Stories* That Will Make You Feel Bad</h2>
+            <p class="section-subtitle">
+                Read about how other people changed their lives. Then cry into your coffee.
+            </p>
+        </div>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-avatar">👨‍💼</div>
+                <div class="story-content">
+                    <p class="story-text">
+                        "I used STUPID's motivation quotes every day for a month. Now I'm a CEO of a Fortune 500 company! 
+                        <span class="story-highlight">(This is a lie. I'm still unemployed.)</span>"
+                    </p>
+                    <div class="story-author">
+                        <span class="author-name">- Greg, 34</span>
+                        <span class="author-title">Professional Liar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-avatar">👩‍💻</div>
+                <div class="story-content">
+                    <p class="story-text">
+                        "These quotes inspired me to start my own business. It failed within 6 months, 
+                        <span class="story-highlight">but at least I tried! (And lost all my savings.)</span>"
+                    </p>
+                    <div class="story-author">
+                        <span class="author-name">- Sarah, 28</span>
+                        <span class="author-title">Former Entrepreneur</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-avatar">👨‍🎓</div>
+                <div class="story-content">
+                    <p class="story-text">
+                        "I read a motivation quote every morning. It's been 2 years and I still haven't achieved anything. 
+                        <span class="story-highlight">10/10 would recommend to other failures.</span>"
+                    </p>
+                    <div class="story-author">
+                        <span class="author-name">- Mike, 42</span>
+                        <span class="author-title">Professional Student</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-avatar">👩‍🍳</div>
+                <div class="story-content">
+                    <p class="story-text">
+                        "I used these quotes to motivate myself to lose weight. I gained 10 pounds instead. 
+                        <span class="story-highlight">But I feel great! (No I don't.)</span>"
+                    </p>
+                    <div class="story-author">
+                        <span class="author-name">- Lisa, 31</span>
+                        <span class="author-title">Aspiring Influencer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="stories-disclaimer">
+            *Disclaimer: These stories are completely made up. Any resemblance to actual success is purely coincidental.
+        </p>
+    </section>
+
+    <!-- Motivation Tools -->
+    <section class="motivation-tools">
+        <div class="section-header">
+            <h2 class="section-title">Tools to Waste Your Time</h2>
+            <p class="section-subtitle">
+                Our suite of motivation tools will help you procrastinate like a pro.
+            </p>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">📝</div>
+                <h3 class="tool-title">Goal Tracker</h3>
+                <p class="tool-description">
+                    Track your goals and watch as you fail to achieve them. Visualize your disappointment.
+                </p>
+                <a href="tracking.html" class="tool-link">
+                    Track Your Failure →
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h3 class="tool-title">Progress Charts</h3>
+                <p class="tool-description">
+                    Beautiful charts showing your lack of progress. Perfect for ignoring.
+                </p>
+                <a href="tracking.html" class="tool-link">
+                    See Your Stagnation →
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">⏰</div>
+                <h3 class="tool-title">Productivity Timer</h3>
+                <p class="tool-description">
+                    Time your work sessions. Get distracted after 3 minutes. Reset the timer. Repeat.
+                </p>
+                <a href="#" class="tool-link">
+                    Waste Time Efficiently →
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🎯</div>
+                <h3 class="tool-title">Habit Builder</h3>
+                <p class="tool-description">
+                    Build good habits. Break them immediately. Feel bad. Build them again. Break them again.
+                </p>
+                <a href="#" class="tool-link">
+                    Build and Destroy →
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">💬</div>
+                <h3 class="tool-title">AI Motivation Coach</h3>
+                <p class="tool-description">
+                    Our AI coach gives you personalized motivation. It's 100% generic and 0% helpful.
+                </p>
+                <a href="#" class="tool-link">
+                    Get Gaslit by a Bot →
+                </a>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">📱</div>
+                <h3 class="tool-title">Push Notifications</h3>
+                <p class="tool-description">
+                    Get motivational reminders on your phone. Ignore them. Feel guilty. Repeat.
+                </p>
+                <a href="#" class="tool-link">
+                    Enable Annoyance →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Still Not Motivated?</h2>
+            <p class="cta-subtitle">
+                That's okay. Neither are we. Let's be unmotivated together.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large">
+                    <span class="button-text">Get Motivated</span>
+                    <span class="button-subtext">(You won't)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">Give Up</span>
+                    <span class="button-subtext">(This is the way)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Motivating you to do nothing since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="meditation.html">Meditate</a></li>
+                    <li><a href="motivation.html">Motivation</a></li>
+                    <li><a href="tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Quotes</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Podcasts</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Motivation sold separately.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/motivation.js"></script>
+</body>
+</html>

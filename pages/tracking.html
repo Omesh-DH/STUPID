@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Failure | STUPID</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="meditation.html" class="nav-link">Meditate</a>
+                <a href="motivation.html" class="nav-link">Motivation</a>
+                <a href="tracking.html" class="nav-link active">Track Your Failure</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero tracking-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Track Your Failure</h1>
+                <p class="page-subtitle">
+                    Watch as your motivation flatlines in real-time. Beautiful charts for ugly truths.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number">0</span>
+                        <span class="page-stat-label">Days on Track</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number">∞</span>
+                        <span class="page-stat-label">Days Off Track</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number">-100%</span>
+                        <span class="page-stat-label">Progress</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder tracking">
+                    <div class="placeholder-icon">📉</div>
+                    <p class="placeholder-text">Your motivation graph</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="dashboard-title">Your Failure Dashboard</h2>
+            <p class="dashboard-subtitle">
+                A beautiful visualization of your inability to follow through on anything.
+            </p>
+        </div>
+        
+        <div class="dashboard-grid">
+            <!-- Summary Cards -->
+            <div class="summary-card">
+                <div class="summary-icon">🎯</div>
+                <div class="summary-content">
+                    <span class="summary-value" id="total-goals">0</span>
+                    <span class="summary-label">Total Goals Set</span>
+                </div>
+                <div class="summary-trend down">↓ 0%</div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">✅</div>
+                <div class="summary-content">
+                    <span class="summary-value" id="completed-goals">0</span>
+                    <span class="summary-label">Goals Completed</span>
+                </div>
+                <div class="summary-trend down">↓ 100%</div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">📅</div>
+                <div class="summary-content">
+                    <span class="summary-value" id="current-streak">0</span>
+                    <span class="summary-label">Current Streak</span>
+                </div>
+                <div class="summary-trend down">↓ 0%</div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">💪</div>
+                <div class="summary-content">
+                    <span class="summary-value" id="motivation-score">0</span>
+                    <span class="summary-label">Motivation Score</span>
+                </div>
+                <div class="summary-trend down">↓ 100%</div>
+            </div>
+        </div>
+        
+        <!-- Charts Row -->
+        <div class="charts-row">
+            <!-- Progress Chart -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Progress Over Time</h3>
+                    <div class="chart-controls">
+                        <button class="chart-button active" data-period="week">Week</button>
+                        <button class="chart-button" data-period="month">Month</button>
+                        <button class="chart-button" data-period="year">Year</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Goal Completion Chart -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Goal Completion Rate</h3>
+                    <div class="chart-legend">
+                        <span class="legend-item completed">Completed</span>
+                        <span class="legend-item failed">Failed</span>
+                        <span class="legend-item abandoned">Abandoned</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="goalChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detailed Stats -->
+        <div class="stats-row">
+            <div class="stats-card">
+                <h3 class="stats-title">Weekly Breakdown</h3>
+                <div class="weekly-stats">
+                    <div class="weekly-day">
+                        <span class="day-name">Mon</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Tue</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Wed</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Thu</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Fri</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Sat</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                    <div class="weekly-day">
+                        <span class="day-name">Sun</span>
+                        <div class="day-bar">
+                            <div class="day-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="day-value">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h3 class="stats-title">Category Performance</h3>
+                <div class="category-stats">
+                    <div class="category-item">
+                        <span class="category-name">Fitness</span>
+                        <div class="category-bar">
+                            <div class="category-fill fitness" style="width: 0%"></div>
+                        </div>
+                        <span class="category-value">0%</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-name">Career</span>
+                        <div class="category-bar">
+                            <div class="category-fill career" style="width: 0%"></div>
+                        </div>
+                        <span class="category-value">0%</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-name">Personal</span>
+                        <div class="category-bar">
+                            <div class="category-fill personal" style="width: 0%"></div>
+                        </div>
+                        <span class="category-value">0%</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-name">Finance</span>
+                        <div class="category-bar">
+                            <div class="category-fill finance" style="width: 0%"></div>
+                        </div>
+                        <span class="category-value">0%</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="category-name">Health</span>
+                        <div class="category-bar">
+                            <div class="category-fill health" style="width: 0%"></div>
+                        </div>
+                        <span class="category-value">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals-section">
+        <div class="section-header">
+            <h2 class="section-title">Your Goals (That You Won't Achieve)</h2>
+            <p class="section-subtitle">
+                Here's a list of all the things you said you'd do but probably won't.
+            </p>
+        </div>
+        
+        <div class="goals-header">
+            <div class="goals-actions">
+                <button class="cta-button primary" id="add-goal">
+                    <span class="button-text">Add Goal</span>
+                    <span class="button-subtext">(You won't do it)</span>
+                </button>
+                <button class="cta-button outline" id="bulk-add">
+                    <span class="button-text">Bulk Add</span>
+                    <span class="button-subtext">(Then ignore all of them)</span>
+                </button>
+            </div>
+            <div class="goals-filters">
+                <button class="filter-button active" data-filter="all">All</button>
+                <button class="filter-button" data-filter="active">Active</button>
+                <button class="filter-button" data-filter="completed">Completed</button>
+                <button class="filter-button" data-filter="failed">Failed</button>
+                <button class="filter-button" data-filter="abandoned">Abandoned</button>
+            </div>
+        </div>
+        
+        <div class="goals-list" id="goals-list">
+            <!-- Goals will be added here dynamically -->
+            <div class="empty-state">
+                <div class="empty-icon">🎯</div>
+                <h3 class="empty-title">No Goals Yet</h3>
+                <p class="empty-description">
+                    You haven't set any goals. That's probably for the best.
+                </p>
+                <button class="cta-button primary" id="add-first-goal">
+                    <span class="button-text">Add Your First Goal</span>
+                    <span class="button-subtext">(You'll abandon it by tomorrow)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Goal Modal -->
+    <div id="add-goal-modal" class="modal">
+        <div class="modal-content goal-modal">
+            <div class="modal-header">
+                <h3>Add a Goal You Won't Achieve</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="goal-form">
+                    <div class="form-group">
+                        <label for="goal-title">Goal Title</label>
+                        <input type="text" id="goal-title" placeholder="e.g., Lose 10 pounds" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal-description">Description</label>
+                        <textarea id="goal-description" placeholder="Describe the goal you'll never achieve..." rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="goal-category">Category</label>
+                            <select id="goal-category">
+                                <option value="fitness">Fitness</option>
+                                <option value="career">Career</option>
+                                <option value="personal">Personal</option>
+                                <option value="finance">Finance</option>
+                                <option value="health">Health</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-deadline">Deadline</label>
+                            <input type="date" id="goal-deadline">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal-difficulty">Difficulty</label>
+                        <select id="goal-difficulty">
+                            <option value="easy">Easy (You'll still fail)</option>
+                            <option value="medium">Medium (You'll definitely fail)</option>
+                            <option value="hard">Hard (Why are you like this?)</option>
+                            <option value="impossible">Impossible (We believe in you! Just kidding.)</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cta-button outline modal-cancel">Cancel</button>
+                <button type="submit" form="goal-form" class="cta-button primary modal-submit">
+                    <span class="button-text">Add Goal</span>
+                    <span class="button-subtext">(You'll regret this)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goal Detail Modal -->
+    <div id="goal-detail-modal" class="modal">
+        <div class="modal-content goal-detail-modal">
+            <div class="modal-header">
+                <h3 id="detail-goal-title">Goal Title</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h4>Description</h4>
+                    <p id="detail-goal-description">No description provided.</p>
+                </div>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Category</span>
+                        <span class="detail-value" id="detail-goal-category">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Deadline</span>
+                        <span class="detail-value" id="detail-goal-deadline">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Difficulty</span>
+                        <span class="detail-value" id="detail-goal-difficulty">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value" id="detail-goal-status">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Progress</span>
+                        <span class="detail-value" id="detail-goal-progress">0%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Days Left</span>
+                        <span class="detail-value" id="detail-goal-days-left">-</span>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="detail-goal-progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cta-button outline" id="mark-complete">
+                    Mark Complete
+                </button>
+                <button type="button" class="cta-button outline" id="mark-failed">
+                    Mark Failed
+                </button>
+                <button type="button" class="cta-button primary" id="edit-goal">
+                    Edit Goal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insights Section -->
+    <section class="insights-section">
+        <div class="section-header">
+            <h2 class="section-title">Insights That Will Depress You</h2>
+            <p class="section-subtitle">
+                Our AI has analyzed your data and the results are... not great.
+            </p>
+        </div>
+        
+        <div class="insights-grid">
+            <div class="insight-card">
+                <div class="insight-icon">📊</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Your Failure Rate</h3>
+                    <p class="insight-description">
+                        You've failed to achieve <strong>100%</strong> of your goals. 
+                        That's not just bad, that's impressive.
+                    </p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon">⏰</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Time Wasted</h3>
+                    <p class="insight-description">
+                        You've spent approximately <strong>0 hours</strong> working on your goals. 
+                        Most of that was probably spent procrastinating.
+                    </p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Most Common Category</h3>
+                    <p class="insight-description">
+                        Your most common goal category is <strong>None</strong>. 
+                        Because you haven't set any goals.
+                    </p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon">📅</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Longest Streak</h3>
+                    <p class="insight-description">
+                        Your longest streak of completing goals is <strong>0 days</strong>. 
+                        That's... actually kind of sad.
+                    </p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon">💪</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Motivation Trend</h3>
+                    <p class="insight-description">
+                        Your motivation has been <strong>consistently low</strong>. 
+                        At least you're consistent at something!
+                    </p>
+                </div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon">🎉</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Achievement Unlocked</h3>
+                    <p class="insight-description">
+                        <strong>Professional Procrastinator</strong> - You've successfully avoided 
+                        doing anything productive for an entire week!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Track More Failure?</h2>
+            <p class="cta-subtitle">
+                The more goals you set, the more you can fail at. It's a win-win!
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="add-goal-cta">
+                    <span class="button-text">Add Another Goal</span>
+                    <span class="button-subtext">(You'll abandon this one too)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View All Goals</span>
+                    <span class="button-subtext">(That you've failed at)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Helping you quantify your failure since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="meditation.html">Meditate</a></li>
+                    <li><a href="motivation.html">Motivation</a></li>
+                    <li><a href="tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Tracking your failure, one goal at a time.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/tracking.js"></script>
+</body>
+</html>
