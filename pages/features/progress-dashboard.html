@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Dashboard (Public Humiliation Mode) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link active">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero dashboard-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Progress Dashboard (Public Humiliation Mode)</h1>
+                <p class="page-subtitle">
+                    See how you compare to others. Spoiler: You're at the bottom. But hey, at least you're consistent!
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="global-rank">#0</span>
+                        <span class="page-stat-label">Global Rank</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="percentile">0%</span>
+                        <span class="page-stat-label">Percentile</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="stupid-score">0</span>
+                        <span class="page-stat-label">STUPID Score</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder dashboard">
+                    <div class="placeholder-icon">📊</div>
+                    <p class="placeholder-text">Chart showing your failure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overall Stats -->
+    <section class="overall-stats">
+        <div class="section-header">
+            <h2 class="section-title">Your Overall Stats (A Portrait of Failure)</h2>
+            <p class="section-subtitle">
+                Here's how you're doing across all features. It's not great.
+            </p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">💬</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-affirmations">0</span>
+                    <span class="stat-label">Affirmations Received</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📈</span>
+                    <span class="trend-text">+0%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">😊</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-moods">0</span>
+                    <span class="stat-label">Moods Logged</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📉</span>
+                    <span class="trend-text">-0%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">👟</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-steps">0</span>
+                    <span class="stat-label">Steps Taken</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📉</span>
+                    <span class="trend-text">-0%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">💧</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-water">0</span>
+                    <span class="stat-label">Glasses of Water</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📈</span>
+                    <span class="trend-text">+0%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">😴</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-sleep">0h</span>
+                    <span class="stat-label">Hours Slept</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📉</span>
+                    <span class="trend-text">-0%</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-content">
+                    <span class="stat-value" id="challenges-completed">0</span>
+                    <span class="stat-label">Challenges Completed</span>
+                </div>
+                <div class="stat-trend">
+                    <span class="trend-icon">📉</span>
+                    <span class="trend-text">-100%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Charts -->
+    <section class="comparison-charts">
+        <div class="section-header">
+            <h2 class="section-title">How You Compare (Spoiler: Badly)</h2>
+            <p class="section-subtitle">
+                See how your stats stack up against other users. It's not pretty.
+            </p>
+        </div>
+        
+        <div class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Activity Comparison</h3>
+                    <p class="chart-subtitle">You vs. Average User</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Wellness Score</h3>
+                    <p class="chart-subtitle">Your Score vs. Others</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="wellnessChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Public Humiliation -->
+    <section class="public-humiliation">
+        <div class="section-header">
+            <h2 class="section-title">Public Humiliation (You've Been Warned)</h2>
+            <p class="section-subtitle">
+                Share your progress with the world. Or don't. We'll do it for you.
+            </p>
+        </div>
+        
+        <div class="humiliation-content">
+            <div class="humiliation-card">
+                <div class="humiliation-icon">📢</div>
+                <h3 class="humiliation-title">Share Your Stats</h3>
+                <p class="humiliation-description">
+                    Post your STUPID score to social media. Let everyone know how you're failing at life.
+                </p>
+                <div class="social-share-buttons">
+                    <button class="share-button twitter">
+                        <span class="share-icon">🐦</span>
+                        <span class="share-text">Share on Twitter</span>
+                    </button>
+                    <button class="share-button facebook">
+                        <span class="share-icon">👍</span>
+                        <span class="share-text">Share on Facebook</span>
+                    </button>
+                    <button class="share-button instagram">
+                        <span class="share-icon">📷</span>
+                        <span class="share-text">Share on Instagram</span>
+                    </button>
+                    <button class="share-button linkedin">
+                        <span class="share-icon">💼</span>
+                        <span class="share-text">Share on LinkedIn</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="humiliation-card">
+                <div class="humiliation-icon">🏆</div>
+                <h3 class="humiliation-title">Leaderboard Position</h3>
+                <p class="humiliation-description">
+                    You're currently ranked <strong id="current-rank">#0</strong> out of <strong id="total-users">0</strong> users.
+                </p>
+                <div class="rank-visualization">
+                    <div class="rank-bar">
+                        <div class="rank-fill" id="rank-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="rank-labels">
+                        <span>Bottom</span>
+                        <span>Top</span>
+                    </div>
+                </div>
+                <p class="rank-message">
+                    You're in the bottom <strong id="bottom-percent">100%</strong>. But hey, you're consistent!
+                </p>
+            </div>
+            
+            <div class="humiliation-card">
+                <div class="humiliation-icon">💬</div>
+                <h3 class="humiliation-title">What Others Are Saying</h3>
+                <p class="humiliation-description">
+                    Here's what other users think about your progress:
+                </p>
+                <div class="comments-list" id="user-comments">
+                    <div class="comment">
+                        <div class="comment-avatar">👤</div>
+                        <div class="comment-content">
+                            <strong>Anonymous User</strong>
+                            <p>Wow, you're really bad at this.</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">👤</div>
+                        <div class="comment-content">
+                            <strong>Another User</strong>
+                            <p>I've seen better stats from a rock.</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">👤</div>
+                        <div class="comment-content">
+                            <strong>Random Person</strong>
+                            <p>At least you're trying? No, wait, you're not.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Improvement Tips -->
+    <section class="improvement-tips">
+        <div class="section-header">
+            <h2 class="section-title">"Improvement" Tips (That Won't Help)</h2>
+            <p class="section-subtitle">
+                Here are some tips to improve your stats. You won't follow them. But we'll give them anyway.
+            </p>
+        </div>
+        
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">💪</div>
+                <h3 class="tip-title">Move More</h3>
+                <p class="tip-description">
+                    Try walking. It's what humans do to not die. You should try it sometime.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Set Step Goal</button>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">💧</div>
+                <h3 class="tip-title">Hydrate</h3>
+                <p class="tip-description">
+                    Drink water. Your body is 60% water. Your brain is 100% dehydration. Fix it.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Set Water Reminder</button>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">😴</div>
+                <h3 class="tip-title">Sleep Better</h3>
+                <p class="tip-description">
+                    Get more sleep. Your body needs it. Your brain needs it. Your soul needs it.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Set Sleep Goal</button>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🧠</div>
+                <h3 class="tip-title">Think Positive</h3>
+                <p class="tip-description">
+                    Try to think positive thoughts. Or don't. We don't care. But it might help.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Get Affirmation</button>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">🏆</div>
+                <h3 class="tip-title">Try a Challenge</h3>
+                <p class="tip-description">
+                    Start a challenge. You won't complete it. But at least you'll have something to fail at.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Browse Challenges</button>
+                </div>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">💬</div>
+                <h3 class="tip-title">Ask for Help</h3>
+                <p class="tip-description">
+                    Ask STUPID for advice. It won't help. But it might make you laugh. Or cry.
+                </p>
+                <div class="tip-action">
+                    <button class="cta-button outline">Ask STUPID</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Improve? (You Won't)</h2>
+            <p class="cta-subtitle">
+                Start using our features and watch as your stats remain exactly the same. It's the STUPID way.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large">
+                    <span class="button-text">Start Improving</span>
+                    <span class="button-subtext">(You'll give up by tomorrow)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View All Features</span>
+                    <span class="button-subtext">(You won't use them)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Publicly humiliating you since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | You're in the bottom 10%. But hey, you're consistent!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/features/progress-dashboard.js"></script>
+</body>
+</html>

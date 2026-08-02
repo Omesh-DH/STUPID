@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Challenges (Impossible & Absurd) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link active">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero challenges-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Wellness Challenges (Impossible & Absurd)</h1>
+                <p class="page-subtitle">
+                    Try to complete these challenges. You won't. But at least you'll have something to fail at besides life.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="challenges-started">0</span>
+                        <span class="page-stat-label">Challenges Started</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="challenges-completed">0</span>
+                        <span class="page-stat-label">Challenges Completed</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="challenges-failed">0%</span>
+                        <span class="page-stat-label">Failure Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder challenges">
+                    <div class="placeholder-icon">🏆</div>
+                    <p class="placeholder-text">Trophy (that you'll never win)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Challenges -->
+    <section class="featured-challenges">
+        <div class="section-header">
+            <h2 class="section-title">Featured Challenges</h2>
+            <p class="section-subtitle">
+                These are our most popular challenges. Popular because people keep failing at them.
+            </p>
+        </div>
+        
+        <div class="featured-grid">
+            <div class="challenge-card featured" data-challenge="meditate-30">
+                <div class="challenge-badge featured">Featured</div>
+                <div class="challenge-icon">🧘</div>
+                <h3 class="challenge-title">Meditate for 30 Days Straight</h3>
+                <p class="challenge-description">
+                    Meditate every day for 30 days. If you miss one day, start over and cry. The crying is mandatory.
+                </p>
+                <div class="challenge-meta">
+                    <span class="challenge-difficulty">Difficulty: Impossible</span>
+                    <span class="challenge-duration">Duration: 30 days</span>
+                </div>
+                <div class="challenge-stats">
+                    <span class="stat-item">
+                        <strong>0%</strong> Completion Rate
+                    </span>
+                    <span class="stat-item">
+                        <strong>100%</strong> Failure Rate
+                    </span>
+                </div>
+                <button class="cta-button primary challenge-start-button">
+                    <span class="button-text">Start Challenge</span>
+                    <span class="button-subtext">(You'll fail by day 3)</span>
+                </button>
+            </div>
+            
+            <div class="challenge-card featured" data-challenge="water-8">
+                <div class="challenge-badge featured">Featured</div>
+                <div class="challenge-icon">💧</div>
+                <h3 class="challenge-title">Drink 8 Glasses of Water</h3>
+                <p class="challenge-description">
+                    Drink 8 glasses of water every day for a week. We'll know if you lie. We always know.
+                </p>
+                <div class="challenge-meta">
+                    <span class="challenge-difficulty">Difficulty: Hard</span>
+                    <span class="challenge-duration">Duration: 7 days</span>
+                </div>
+                <div class="challenge-stats">
+                    <span class="stat-item">
+                        <strong>5%</strong> Completion Rate
+                    </span>
+                    <span class="stat-item">
+                        <strong>95%</strong> Failure Rate
+                    </span>
+                </div>
+                <button class="cta-button primary challenge-start-button">
+                    <span class="button-text">Start Challenge</span>
+                    <span class="button-subtext">(You'll forget by day 2)</span>
+                </button>
+            </div>
+            
+            <div class="challenge-card featured" data-challenge="smile-stranger">
+                <div class="challenge-badge featured">Featured</div>
+                <div class="challenge-icon">😊</div>
+                <h3 class="challenge-title">Smile at a Stranger</h3>
+                <p class="challenge-description">
+                    Smile at a stranger every day for a week. They'll think you're weird. Worth it.
+                </p>
+                <div class="challenge-meta">
+                    <span class="challenge-difficulty">Difficulty: Social Suicide</span>
+                    <span class="challenge-duration">Duration: 7 days</span>
+                </div>
+                <div class="challenge-stats">
+                    <span class="stat-item">
+                        <strong>2%</strong> Completion Rate
+                    </span>
+                    <span class="stat-item">
+                        <strong>98%</strong> Failure Rate
+                    </span>
+                </div>
+                <button class="cta-button primary challenge-start-button">
+                    <span class="button-text">Start Challenge</span>
+                    <span class="button-subtext">(They'll call the police)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Categories -->
+    <section class="challenge-categories">
+        <div class="section-header">
+            <h2 class="section-title">Browse by Category</h2>
+            <p class="section-subtitle">
+                Find the perfect challenge to fail at. We have categories for every type of failure.
+            </p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card challenge-category" data-category="fitness">
+                <div class="category-icon">💪</div>
+                <h3 class="category-title">Fitness</h3>
+                <p class="category-description">
+                    Challenges that will make you realize how out of shape you are.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🏃</span>
+                        <span class="mini-title">10K Steps Daily</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🧘</span>
+                        <span class="mini-title">Yoga for 30 Days</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🏋️</span>
+                        <span class="mini-title">Work Out 5x/Week</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+            
+            <div class="category-card challenge-category" data-category="health">
+                <div class="category-icon">🍎</div>
+                <h3 class="category-title">Health</h3>
+                <p class="category-description">
+                    Challenges that will make you feel guilty about your lifestyle.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">💧</span>
+                        <span class="mini-title">Hydrate Daily</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🥗</span>
+                        <span class="mini-title">Eat Veggies Every Day</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🚫</span>
+                        <span class="mini-title">No Sugar for a Week</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+            
+            <div class="category-card challenge-category" data-category="mindfulness">
+                <div class="category-icon">🧠</div>
+                <h3 class="category-title">Mindfulness</h3>
+                <p class="category-description">
+                    Challenges that will make you realize how bad you are at being present.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🧘</span>
+                        <span class="mini-title">Meditate Daily</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">📝</span>
+                        <span class="mini-title">Journal Every Day</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">😌</span>
+                        <span class="mini-title">Gratitude Practice</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+            
+            <div class="category-card challenge-category" data-category="social">
+                <div class="category-icon">👥</div>
+                <h3 class="category-title">Social</h3>
+                <p class="category-description">
+                    Challenges that will make you realize how bad you are at human interaction.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">😊</span>
+                        <span class="mini-title">Smile at Strangers</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🤝</span>
+                        <span class="mini-title">Compliment Someone</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">📞</span>
+                        <span class="mini-title">Call a Friend</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+            
+            <div class="category-card challenge-category" data-category="productivity">
+                <div class="category-icon">💼</div>
+                <h3 class="category-title">Productivity</h3>
+                <p class="category-description">
+                    Challenges that will make you realize how unproductive you are.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">⏰</span>
+                        <span class="mini-title">Pomodoro Technique</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">📝</span>
+                        <span class="mini-title">To-Do List Daily</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🚫</span>
+                        <span class="mini-title">No Procrastination</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+            
+            <div class="category-card challenge-category" data-category="absurd">
+                <div class="category-icon">🤪</div>
+                <h3 class="category-title">Absurd</h3>
+                <p class="category-description">
+                    Challenges that are so ridiculous, you'll fail just for fun.
+                </p>
+                <div class="category-challenges">
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🎭</span>
+                        <span class="mini-title">Talk to a Plant</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">🎵</span>
+                        <span class="mini-title">Sing in Public</span>
+                    </div>
+                    <div class="mini-challenge">
+                        <span class="mini-icon">💃</span>
+                        <span class="mini-title">Dance Like No One's Watching</span>
+                    </div>
+                </div>
+                <button class="cta-button outline category-button">View All</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Challenges -->
+    <section class="active-challenges">
+        <div class="section-header">
+            <h2 class="section-title">Your Active Challenges (That You're Failing At)</h2>
+            <p class="section-subtitle">
+                Here are the challenges you've started but probably won't finish. We're watching.
+            </p>
+        </div>
+        
+        <div class="active-list" id="active-challenges">
+            <div class="empty-state">
+                <div class="empty-icon">🏆</div>
+                <h3 class="empty-title">No Active Challenges</h3>
+                <p class="empty-description">
+                    You haven't started any challenges yet. That's probably for the best. You'd just fail anyway.
+                </p>
+                <button class="cta-button primary" id="start-challenge-cta">
+                    <span class="button-text">Start a Challenge</span>
+                    <span class="button-subtext">(You'll regret it)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Leaderboard -->
+    <section class="challenge-leaderboard">
+        <div class="section-header">
+            <h2 class="section-title">Leaderboard (Public Humiliation Mode)</h2>
+            <p class="section-subtitle">
+                See how you compare to other users. Spoiler: You're at the bottom.
+            </p>
+        </div>
+        
+        <div class="leaderboard-content">
+            <div class="leaderboard-tabs">
+                <button class="tab-button active" data-tab="global">Global</button>
+                <button class="tab-button" data-tab="friends">Friends</button>
+                <button class="tab-button" data-tab="local">Local</button>
+            </div>
+            
+            <div class="leaderboard-table">
+                <div class="leaderboard-header">
+                    <span class="rank">Rank</span>
+                    <span class="user">User</span>
+                    <span class="challenges">Challenges Completed</span>
+                    <span class="score">Score</span>
+                </div>
+                
+                <div class="leaderboard-rows" id="leaderboard-rows">
+                    <div class="leaderboard-row">
+                        <span class="rank">1</span>
+                        <span class="user">
+                            <div class="user-avatar">🥇</div>
+                            <span class="user-name">STUPID_Bot</span>
+                        </span>
+                        <span class="challenges">∞</span>
+                        <span class="score">99,999</span>
+                    </div>
+                    <div class="leaderboard-row">
+                        <span class="rank">2</span>
+                        <span class="user">
+                            <div class="user-avatar">🥈</div>
+                            <span class="user-name">NotRealUser</span>
+                        </span>
+                        <span class="challenges">100</span>
+                        <span class="score">50,000</span>
+                    </div>
+                    <div class="leaderboard-row">
+                        <span class="rank">3</span>
+                        <span class="user">
+                            <div class="user-avatar">🥉</div>
+                            <span class="user-name">FakePerson</span>
+                        </span>
+                        <span class="challenges">50</span>
+                        <span class="score">25,000</span>
+                    </div>
+                    <div class="leaderboard-row you">
+                        <span class="rank">-</span>
+                        <span class="user">
+                            <div class="user-avatar">👤</div>
+                            <span class="user-name">You</span>
+                        </span>
+                        <span class="challenges">0</span>
+                        <span class="score">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leaderboard-message">
+                <p>You're in the bottom 10%. But hey, you're consistent!</p>
+                <p>Your peers are doing better. Just saying.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Fail at Something New?</h2>
+            <p class="cta-subtitle">
+                Start a challenge today. You won't complete it, but at least you'll have something to feel bad about.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="browse-challenges">
+                    <span class="button-text">Browse All Challenges</span>
+                    <span class="button-subtext">(You'll fail at all of them)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View Leaderboard</span>
+                    <span class="button-subtext">(Prepare to be humiliated)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Helping you fail at new things since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | You're in the bottom 10%. But hey, you're consistent!
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/features/wellness-challenges.js"></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Counter (Shame-Based Fitness) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link active">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero steps-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Step Counter (Shame-Based Fitness)</h1>
+                <p class="page-subtitle">
+                    Track your steps and receive the shame you deserve. Walking is the most basic form of movement, and you're probably failing at it.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="today-steps">0</span>
+                        <span class="page-stat-label">Steps Today</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="week-steps">0</span>
+                        <span class="page-stat-label">Steps This Week</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="average-steps">0</span>
+                        <span class="page-stat-label">Daily Average</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder steps">
+                    <div class="placeholder-icon">👟</div>
+                    <p class="placeholder-text">Shoes (collecting dust)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step Display -->
+    <section class="step-display">
+        <div class="display-content">
+            <div class="step-circle">
+                <div class="step-count">
+                    <span class="count-number" id="step-count">0</span>
+                    <span class="count-label">STEPS</span>
+                </div>
+                <div class="step-progress">
+                    <svg class="progress-ring" viewBox="0 0 120 120">
+                        <circle class="progress-ring-bg" cx="60" cy="60" r="54"></circle>
+                        <circle class="progress-ring-fill" cx="60" cy="60" r="54" style="stroke-dasharray: 0, 339.29"></circle>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="step-message" id="step-message">
+                <h3>I've seen more movement in a cemetery.</h3>
+                <p>Get off your couch. Or don't. We don't care.</p>
+            </div>
+            
+            <div class="step-goal">
+                <label for="step-goal">Daily Goal:</label>
+                <input type="number" id="step-goal" value="10000" min="100">
+                <button class="cta-button outline" id="update-goal">Update</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step Shaming -->
+    <section class="step-shaming">
+        <div class="section-header">
+            <h2 class="section-title">How Pathetic Are Your Steps?</h2>
+            <p class="section-subtitle">
+                Let's see how you compare to the bare minimum of human movement.
+            </p>
+        </div>
+        
+        <div class="shaming-grid">
+            <div class="shame-card">
+                <div class="shame-icon">💀</div>
+                <div class="shame-range">
+                    <span class="range-min">0</span>
+                    <span class="range-max">999</span>
+                </div>
+                <h3 class="shame-title">Cemetery Level</h3>
+                <p class="shame-description">
+                    I've seen more movement in a cemetery. Are you even alive?
+                </p>
+            </div>
+            
+            <div class="shame-card">
+                <div class="shame-icon">🐢</div>
+                <div class="shame-range">
+                    <span class="range-min">1,000</span>
+                    <span class="range-max">4,999</span>
+                </div>
+                <h3 class="shame-title">Turtle Pace</h3>
+                <p class="shame-description">
+                    Walking: the activity your ancestors did to not die. You're almost there.
+                </p>
+            </div>
+            
+            <div class="shame-card">
+                <div class="shame-icon">🚶</div>
+                <div class="shame-range">
+                    <span class="range-min">5,000</span>
+                    <span class="range-max">9,999</span>
+                </div>
+                <h3 class="shame-title">Basic Human</h3>
+                <p class="shame-description">
+                    Congratulations! You've achieved the bare minimum of human function.
+                </p>
+            </div>
+            
+            <div class="shame-card">
+                <div class="shame-icon">🏃</div>
+                <div class="shame-range">
+                    <span class="range-min">10,000</span>
+                    <span class="range-max">14,999</span>
+                </div>
+                <h3 class="shame-title">Overachiever</h3>
+                <p class="shame-description">
+                    Wow, you actually moved. Who hurt you? Why are you running?
+                </p>
+            </div>
+            
+            <div class="shame-card">
+                <div class="shame-icon">🌪️</div>
+                <div class="shame-range">
+                    <span class="range-min">15,000</span>
+                    <span class="range-max">∞</span>
+                </div>
+                <h3 class="shame-title">Maniac</h3>
+                <p class="shame-description">
+                    Are you training for a marathon or running from your problems? Either way, slow down.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step History -->
+    <section class="step-history">
+        <div class="section-header">
+            <h2 class="section-title">Your Step History (A Timeline of Laziness)</h2>
+            <p class="section-subtitle">
+                Here's a record of your daily steps. Notice how most days are just sad.
+            </p>
+        </div>
+        
+        <div class="history-chart-container">
+            <canvas id="stepChart"></canvas>
+        </div>
+        
+        <div class="step-list" id="step-list">
+            <div class="empty-state">
+                <div class="empty-icon">📈</div>
+                <h3 class="empty-title">No Step Data Yet</h3>
+                <p class="empty-description">
+                    You haven't logged any steps. Your shoes are collecting dust. Literally.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step Challenges -->
+    <section class="step-challenges">
+        <div class="section-header">
+            <h2 class="section-title">Step Challenges (That You'll Fail)</h2>
+            <p class="section-subtitle">
+                Try to complete these step challenges. You won't. But at least you'll feel bad about it.
+            </p>
+        </div>
+        
+        <div class="challenges-grid">
+            <div class="challenge-card step-challenge">
+                <div class="challenge-badge">Daily</div>
+                <h3 class="challenge-title">10,000 Steps</h3>
+                <p class="challenge-description">
+                    Walk 10,000 steps today. The recommended daily amount for basic human function.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/10,000 steps</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card step-challenge">
+                <div class="challenge-badge">Weekly</div>
+                <h3 class="challenge-title">50,000 Steps</h3>
+                <p class="challenge-description">
+                    Walk 50,000 steps this week. That's only 7,142 steps per day. You can do it! (No you can't.)
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/50,000 steps</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card step-challenge">
+                <div class="challenge-badge">Monthly</div>
+                <h3 class="challenge-title">150,000 Steps</h3>
+                <p class="challenge-description">
+                    Walk 150,000 steps this month. That's 5,000 steps per day. You'll quit by day 3.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/150,000 steps</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Data Integration -->
+    <section class="health-integration">
+        <div class="section-header">
+            <h2 class="section-title">Connect Your Health Data</h2>
+            <p class="section-subtitle">
+                Sync with your phone's health app to automatically track your steps. Then we can judge you in real-time.
+            </p>
+        </div>
+        
+        <div class="integration-options">
+            <div class="integration-card">
+                <div class="integration-icon apple">🍎</div>
+                <h3 class="integration-title">Apple Health</h3>
+                <p class="integration-description">
+                    Sync your iPhone's step data. We'll automatically shame you for not walking enough.
+                </p>
+                <button class="cta-button outline integration-button" id="connect-apple">
+                    Connect Apple Health
+                </button>
+            </div>
+            
+            <div class="integration-card">
+                <div class="integration-icon google">🤖</div>
+                <h3 class="integration-title">Google Fit</h3>
+                <p class="integration-description">
+                    Sync your Android's step data. We'll judge your laziness across all platforms.
+                </p>
+                <button class="cta-button outline integration-button" id="connect-google">
+                    Connect Google Fit
+                </button>
+            </div>
+            
+            <div class="integration-card">
+                <div class="integration-icon fitbit">🏃</div>
+                <h3 class="integration-title">Fitbit</h3>
+                <p class="integration-description">
+                    Sync your Fitbit data. You paid for that thing, you might as well use it.
+                </p>
+                <button class="cta-button outline integration-button" id="connect-fitbit">
+                    Connect Fitbit
+                </button>
+            </div>
+        </div>
+        
+        <div class="integration-warning">
+            <div class="warning-icon">⚠️</div>
+            <p class="warning-text">
+                <strong>Warning:</strong> Connecting your health data will result in more accurate shame. 
+                We'll know exactly how lazy you are. There's no hiding.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Be Shamed Into Walking?</h2>
+            <p class="cta-subtitle">
+                Connect your health data and let us judge your every step. Or lack thereof.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="connect-all">
+                    <span class="button-text">Connect All Devices</span>
+                    <span class="button-subtext">(We'll know everything)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">Manual Entry</span>
+                    <span class="button-subtext">(We'll know you're lying)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Shaming you into fitness since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Every step counts (against you).
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/features/step-counter.js"></script>
+</body>
+</html>

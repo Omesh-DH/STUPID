@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Affirmations (But Mean) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link active">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero affirmations-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Daily Affirmations (But Mean)</h1>
+                <p class="page-subtitle">
+                    Start your day with a healthy dose of reality. Our affirmations look motivational but pack a savage punch.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="affirmations-sent">0</span>
+                        <span class="page-stat-label">Affirmations Sent</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="tears-shed">0</span>
+                        <span class="page-stat-label">Tears Shed</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="self-esteem-lost">0%</span>
+                        <span class="page-stat-label">Self-Esteem Lost</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder affirmations">
+                    <div class="placeholder-icon">💬</div>
+                    <p class="placeholder-text">Person reading affirmations (regretting it)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affirmation Generator -->
+    <section class="affirmation-generator">
+        <div class="generator-content">
+            <div class="generator-header">
+                <h2 class="generator-title">Your Daily Dose of Reality</h2>
+                <p class="generator-subtitle">
+                    Get a fresh affirmation every day. Or don't. We don't care. But if you do, it'll probably hurt your feelings.
+                </p>
+            </div>
+            
+            <div class="affirmation-display">
+                <div class="affirmation-card">
+                    <div class="affirmation-quote-mark">"</div>
+                    <p class="affirmation-text" id="daily-affirmation">
+                        You're doing great... for someone with your limitations.
+                    </p>
+                    <div class="affirmation-quote-mark closing">"</div>
+                    <div class="affirmation-author">- STUPID™ Daily Affirmations</div>
+                </div>
+                
+                <div class="affirmation-actions">
+                    <button class="cta-button primary large" id="new-affirmation">
+                        <span class="button-text">Get New Affirmation</span>
+                        <span class="button-subtext">(It won't be better)</span>
+                    </button>
+                    <button class="cta-button outline" id="share-affirmation">
+                        <span class="button-text">Share</span>
+                        <span class="button-subtext">(Your friends will hate you)</span>
+                    </button>
+                    <button class="cta-button outline" id="save-affirmation">
+                        <span class="button-text">Save</span>
+                        <span class="button-subtext">(You'll never look at it again)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affirmation Categories -->
+    <section class="affirmation-categories">
+        <div class="section-header">
+            <h2 class="section-title">Choose Your Pain</h2>
+            <p class="section-subtitle">
+                Select an affirmation category. Each one is designed to make you question your life choices.
+            </p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card affirmation-category" data-category="self-worth">
+                <div class="category-icon">😊</div>
+                <h3 class="category-title">Self-Worth</h3>
+                <p class="category-description">
+                    Affirmations about your value as a person. Spoiler: It's not much.
+                </p>
+                <button class="cta-button outline category-button">Get Affirmation</button>
+            </div>
+            
+            <div class="category-card affirmation-category" data-category="productivity">
+                <div class="category-icon">💼</div>
+                <h3 class="category-title">Productivity</h3>
+                <p class="category-description">
+                    Feel motivated to do nothing. You're welcome.
+                </p>
+                <button class="cta-button outline category-button">Get Affirmation</button>
+            </div>
+            
+            <div class="category-card affirmation-category" data-category="relationships">
+                <div class="category-icon">❤️</div>
+                <h3 class="category-title">Relationships</h3>
+                <p class="category-description">
+                    Affirmations about love. You'll end up single and happy. Or just single.
+                </p>
+                <button class="cta-button outline category-button">Get Affirmation</button>
+            </div>
+            
+            <div class="category-card affirmation-category" data-category="health">
+                <div class="category-icon">💪</div>
+                <h3 class="category-title">Health</h3>
+                <p class="category-description">
+                    Feel good about your body. Just kidding, you should be ashamed.
+                </p>
+                <button class="cta-button outline category-button">Get Affirmation</button>
+            </div>
+            
+            <div class="category-card affirmation-category" data-category="career">
+                <div class="category-icon">🚀</div>
+                <h3 class="category-title">Career</h3>
+                <p class="category-description">
+                    Your career is going nowhere. Here's an affirmation to remind you.
+                </p>
+                <button class="cta-button outline category-button">Get Affirmation</button>
+            </div>
+            
+            <div class="category-card affirmation-category" data-category="random">
+                <div class="category-icon">🎲</div>
+                <h3 class="category-title">Random</h3>
+                <p class="category-description">
+                    Let fate decide which part of your life to insult today.
+                </p>
+                <button class="cta-button outline category-button">Surprise Me</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Push Notifications Section -->
+    <section class="push-notifications">
+        <div class="section-header">
+            <h2 class="section-title">Push Notifications (That You'll Regret Enabling)</h2>
+            <p class="section-subtitle">
+                Enable push notifications to receive daily affirmations straight to your phone. You'll hate it.
+            </p>
+        </div>
+        
+        <div class="notifications-content">
+            <div class="notification-preview">
+                <div class="notification-card">
+                    <div class="notification-icon">🔔</div>
+                    <div class="notification-text">
+                        <h4>Daily Affirmation</h4>
+                        <p>Every day is a new opportunity to disappoint yourself.</p>
+                        <span class="notification-time">Just now</span>
+                    </div>
+                </div>
+                
+                <div class="notification-card">
+                    <div class="notification-icon">🔔</div>
+                    <div class="notification-text">
+                        <h4>Morning Motivation</h4>
+                        <p>Believe in yourself! Or don't. I'm not your dad.</p>
+                        <span class="notification-time">1 hour ago</span>
+                    </div>
+                </div>
+                
+                <div class="notification-card">
+                    <div class="notification-icon">🔔</div>
+                    <div class="notification-text">
+                        <h4>Afternoon Pick-Me-Up</h4>
+                        <p>You're doing great... at wasting time.</p>
+                        <span class="notification-time">3 hours ago</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notification-toggle">
+                <div class="toggle-container">
+                    <span class="toggle-label">Enable Push Notifications</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="push-notifications-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-warning">
+                    ⚠️ Warning: Enabling this will result in daily emotional damage. Proceed with caution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affirmation History -->
+    <section class="affirmation-history">
+        <div class="section-header">
+            <h2 class="section-title">Your Affirmation History (A Timeline of Regret)</h2>
+            <p class="section-subtitle">
+                Here's a record of all the affirmations you've received. Relive the pain anytime.
+            </p>
+        </div>
+        
+        <div class="history-list" id="affirmation-history">
+            <div class="empty-state">
+                <div class="empty-icon">📜</div>
+                <h3 class="empty-title">No History Yet</h3>
+                <p class="empty-description">
+                    You haven't received any affirmations yet. Your self-esteem is still intact. For now.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready for More Emotional Damage?</h2>
+            <p class="cta-subtitle">
+                Enable push notifications to receive daily affirmations that will slowly erode your self-worth.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="enable-all-notifications">
+                    <span class="button-text">Enable All Notifications</span>
+                    <span class="button-subtext">(You'll regret this)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">Maybe Later</span>
+                    <span class="button-subtext">(Smart choice)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Destroying your self-esteem one affirmation at a time.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Affirmations may cause emotional distress.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/features/daily-affirmations.js"></script>
+</body>
+</html>

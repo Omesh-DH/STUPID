@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker (Insult Your Rest) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link active">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero sleep-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Sleep Tracker (Insult Your Rest)</h1>
+                <p class="page-subtitle">
+                    Track your sleep and receive the judgment you deserve. Whether you're a night owl or a lazy slug, we've got something to say about it.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="last-sleep">0h 0m</span>
+                        <span class="page-stat-label">Last Night</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="average-sleep">0h 0m</span>
+                        <span class="page-stat-label">Average</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="sleep-streak">0</span>
+                        <span class="page-stat-label">Night Streak</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder sleep">
+                    <div class="placeholder-icon">😴</div>
+                    <p class="placeholder-text">Person sleeping (or pretending to)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Logger -->
+    <section class="sleep-logger">
+        <div class="logger-content">
+            <div class="logger-header">
+                <h2 class="logger-title">Log Your Sleep</h2>
+                <p class="logger-subtitle">
+                    Tell us when you went to bed and when you woke up. We'll tell you exactly what we think about your sleep habits.
+                </p>
+            </div>
+            
+            <div class="sleep-input">
+                <div class="input-group">
+                    <label for="bedtime">Bedtime</label>
+                    <input type="time" id="bedtime">
+                </div>
+                <div class="input-group">
+                    <label for="wakeup">Wake-up Time</label>
+                    <input type="time" id="wakeup">
+                </div>
+                <div class="input-group">
+                    <label for="sleep-quality">Sleep Quality</label>
+                    <select id="sleep-quality">
+                        <option value="5">⭐⭐⭐⭐⭐ (Amazing)</option>
+                        <option value="4">⭐⭐⭐⭐ (Good)</option>
+                        <option value="3" selected>⭐⭐⭐ (Okay)</option>
+                        <option value="2">⭐⭐ (Bad)</option>
+                        <option value="1">⭐ (Terrible)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="sleep-actions">
+                <button class="cta-button primary large" id="log-sleep">
+                    <span class="button-text">Log Sleep</span>
+                    <span class="button-subtext">(We'll judge you)</span>
+                </button>
+                <button class="cta-button outline" id="quick-log">
+                    <span class="button-text">Quick Log</span>
+                    <span class="button-subtext">(For lazy people)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Response Display -->
+    <section class="sleep-response-display" id="sleep-response-section" style="display: none;">
+        <div class="response-content">
+            <div class="response-card">
+                <div class="response-emoji" id="sleep-response-emoji">😴</div>
+                <h3 class="response-title" id="sleep-response-title">Your Sleep</h3>
+                <p class="response-message" id="sleep-response-message">
+                    We're judging your sleep habits right now.
+                </p>
+                <div class="sleep-details">
+                    <div class="sleep-detail">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value" id="sleep-duration">0h 0m</span>
+                    </div>
+                    <div class="sleep-detail">
+                        <span class="detail-label">Quality:</span>
+                        <span class="detail-value" id="sleep-quality-display">⭐⭐⭐</span>
+                    </div>
+                    <div class="sleep-detail">
+                        <span class="detail-label">Verdict:</span>
+                        <span class="detail-value" id="sleep-verdict">Adequate. Don't expect a medal.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Shaming -->
+    <section class="sleep-shaming">
+        <div class="section-header">
+            <h2 class="section-title">How Pathetic Is Your Sleep?</h2>
+            <p class="section-subtitle">
+                Let's see how your sleep habits compare to basic human needs.
+            </p>
+        </div>
+        
+        <div class="shaming-grid">
+            <div class="shame-card sleep">
+                <div class="shame-icon">💀</div>
+                <div class="shame-range">
+                    <span class="range-min">&lt;6h</span>
+                </div>
+                <h3 class="shame-title">Self-Destructive</h3>
+                <p class="shame-description">
+                    Congratulations on your self-destructive lifestyle. Your body hates you. Your brain is mush.
+                </p>
+            </div>
+            
+            <div class="shame-card sleep">
+                <div class="shame-icon">😴</div>
+                <div class="shame-range">
+                    <span class="range-min">6-8h</span>
+                </div>
+                <h3 class="shame-title">Adequate</h3>
+                <p class="shame-description">
+                    Adequate. Don't expect a medal. You're doing the bare minimum to not die.
+                </p>
+            </div>
+            
+            <div class="shame-card sleep">
+                <div class="shame-icon">😌</div>
+                <div class="shame-range">
+                    <span class="range-min">8-9h</span>
+                </div>
+                <h3 class="shame-title">Overachiever</h3>
+                <p class="shame-description">
+                    Wow, you actually slept. Are you a cat? Or just avoiding your problems?
+                </p>
+            </div>
+            
+            <div class="shame-card sleep">
+                <div class="shame-icon">😵</div>
+                <div class="shame-range">
+                    <span class="range-min">&gt;9h</span>
+                </div>
+                <h3 class="shame-title">Comatose</h3>
+                <p class="shame-description">
+                    Are you sleeping or in a coma? Either way, you're avoiding life. Good job.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep History -->
+    <section class="sleep-history">
+        <div class="section-header">
+            <h2 class="section-title">Your Sleep History (A Pattern of Exhaustion)</h2>
+            <p class="section-subtitle">
+                Here's a record of your sleep. Notice how most nights are just sad and insufficient.
+            </p>
+        </div>
+        
+        <div class="history-filters">
+            <button class="filter-button active" data-filter="all">All Time</button>
+            <button class="filter-button" data-filter="week">Last Week</button>
+            <button class="filter-button" data-filter="month">Last Month</button>
+        </div>
+        
+        <div class="history-chart-container">
+            <canvas id="sleepChart"></canvas>
+        </div>
+        
+        <div class="sleep-list" id="sleep-list">
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3 class="empty-title">No Sleep Data Yet</h3>
+                <p class="empty-description">
+                    You haven't logged any sleep. We can't judge your rest habits if you don't participate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Insights -->
+    <section class="sleep-insights">
+        <div class="section-header">
+            <h2 class="section-title">Sleep Insights (That Will Make You Feel Worse)</h2>
+            <p class="section-subtitle">
+                Our AI has analyzed your sleep data. The results are... concerning.
+            </p>
+        </div>
+        
+        <div class="insights-grid">
+            <div class="insight-card sleep-insight">
+                <div class="insight-icon">😴</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Average Sleep</h3>
+                    <p class="insight-description" id="average-sleep-insight">
+                        You haven't logged any sleep yet. We can't even judge you properly.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card sleep-insight">
+                <div class="insight-icon">📉</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Sleep Trend</h3>
+                    <p class="insight-description" id="sleep-trend-insight">
+                        No trend data available. Probably for the best.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card sleep-insight">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Sleep Consistency</h3>
+                    <p class="insight-description" id="sleep-consistency-insight">
+                        Your sleep is... nonexistent. Good job.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card sleep-insight">
+                <div class="insight-icon">💡</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">AI Recommendation</h3>
+                    <p class="insight-description" id="sleep-ai-recommendation">
+                        We recommend you sleep more. Or at least stop lying about it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sleep Challenges -->
+    <section class="sleep-challenges">
+        <div class="section-header">
+            <h2 class="section-title">Sleep Challenges (That You'll Fail)</h2>
+            <p class="section-subtitle">
+                Try to complete these sleep challenges. You won't. But at least you'll be well-rested enough to fail at other things.
+            </p>
+        </div>
+        
+        <div class="challenges-grid">
+            <div class="challenge-card sleep-challenge">
+                <div class="challenge-badge">Daily</div>
+                <h3 class="challenge-title">8 Hours of Sleep</h3>
+                <p class="challenge-description">
+                    Get 8 hours of sleep tonight. The recommended amount for basic human function.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/8 hours</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card sleep-challenge">
+                <div class="challenge-badge">Weekly</div>
+                <h3 class="challenge-title">56 Hours of Sleep</h3>
+                <p class="challenge-description">
+                    Get 56 hours of sleep this week. That's only 8 hours per night. You can do it! (No you can't.)
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/56 hours</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card sleep-challenge">
+                <div class="challenge-badge">Streak</div>
+                <h3 class="challenge-title">7-Day Sleep Streak</h3>
+                <p class="challenge-description">
+                    Get 8 hours of sleep every night for 7 days. You'll break the streak by day 3.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/7 days</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Be Judged for Your Sleep?</h2>
+            <p class="cta-subtitle">
+                Start tracking your sleep and let us shame you into better rest habits. Or don't. We don't care.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="log-sleep-cta">
+                    <span class="button-text">Log Your Sleep</span>
+                    <span class="button-subtext">(We'll judge you)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View Sleep History</span>
+                    <span class="button-subtext">(Prepare to cringe)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Judging your sleep since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Your sleep habits are our business.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/features/sleep-tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask STUPID | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link active">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero ask-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Ask STUPID</h1>
+                <p class="page-subtitle">
+                    Our AI-powered chatbot gives you personalized advice that's 100% generic and 0% helpful. Ask any question and receive the brutal honesty you deserve.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="questions-asked">0</span>
+                        <span class="page-stat-label">Questions Asked</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="answers-given">0</span>
+                        <span class="page-stat-label">Answers Given</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="satisfaction-rate">0%</span>
+                        <span class="page-stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder ask">
+                    <div class="placeholder-icon">🤖</div>
+                    <p class="placeholder-text">AI chatbot (judging you)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Interface -->
+    <section class="chat-interface">
+        <div class="chat-content">
+            <div class="chat-header">
+                <h2 class="chat-title">Chat with STUPID</h2>
+                <p class="chat-subtitle">
+                    Ask any question. Get an answer that's equal parts helpful and hurtful.
+                </p>
+            </div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                    <div class="message-bubble bot">
+                        <div class="message-text">
+                            <p>Hello! I'm STUPID, your AI-powered life coach that doesn't care about your feelings.</p>
+                            <p>Ask me anything. I'll give you the brutal honesty you've been avoiding.</p>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+                
+                <div class="example-questions">
+                    <h4>Try asking:</h4>
+                    <div class="question-examples">
+                        <button class="example-question">What's the meaning of life?</button>
+                        <button class="example-question">How do I be happy?</button>
+                        <button class="example-question">Am I a failure?</button>
+                        <button class="example-question">Should I quit my job?</button>
+                        <button class="example-question">Will I ever find love?</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <div class="input-container">
+                    <input type="text" id="user-input" placeholder="Ask STUPID anything..." autocomplete="off">
+                    <button class="send-button" id="send-button">
+                        <span>→</span>
+                    </button>
+                </div>
+                <p class="input-hint">
+                    Press Enter to send. We're judging your question before you even ask it.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Types -->
+    <section class="response-types">
+        <div class="section-header">
+            <h2 class="section-title">What to Expect</h2>
+            <p class="section-subtitle">
+                Our AI responds with a mix of humor, honesty, and harsh truth. Here's what you might get:
+            </p>
+        </div>
+        
+        <div class="types-grid">
+            <div class="type-card response-type">
+                <div class="type-icon">😂</div>
+                <h3 class="type-title">Dad Jokes</h3>
+                <p class="type-description">
+                    Classic dad jokes to lighten the mood. Or make you groan.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> Why did the scarecrow win an award?</p>
+                    <p><strong>A:</strong> Because he was outstanding in his field! (Get it? Because you're not.)</p>
+                </div>
+            </div>
+            
+            <div class="type-card response-type">
+                <div class="type-icon">🔥</div>
+                <h3 class="type-title">Brutal Honesty</h3>
+                <p class="type-description">
+                    Straight-up truth bombs. No sugar coating. Just the hard facts.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> Am I talented?</p>
+                    <p><strong>A:</strong> No. But neither is anyone else, so you're in good company.</p>
+                </div>
+            </div>
+            
+            <div class="type-card response-type">
+                <div class="type-icon">💡</div>
+                <h3 class="type-title">Sarcasm</h3>
+                <p class="type-description">
+                    Heavy on the sarcasm. Light on the actual help.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> How do I get rich?</p>
+                    <p><strong>A:</strong> Oh sure, just work hard and be smart. It's that easy. Said no one ever.</p>
+                </div>
+            </div>
+            
+            <div class="type-card response-type">
+                <div class="type-icon">🤷</div>
+                <h3 class="type-title">Existential Dread</h3>
+                <p class="type-description">
+                    Deep thoughts about the meaninglessness of existence.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> What's my purpose?</p>
+                    <p><strong>A:</strong> To suffer. And then die. But first, pay your bills.</p>
+                </div>
+            </div>
+            
+            <div class="type-card response-type">
+                <div class="type-icon">💬</div>
+                <h3 class="type-title">Passive-Aggressive</h3>
+                <p class="type-description">
+                    Sweet on the surface, savage underneath.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> Do you like my new haircut?</p>
+                    <p><strong>A:</strong> Wow, it's so... unique! Just like your life choices.</p>
+                </div>
+            </div>
+            
+            <div class="type-card response-type">
+                <div class="type-icon">🎲</div>
+                <h3 class="type-title">Random</h3>
+                <p class="type-description">
+                    Completely random responses. Could be anything.
+                </p>
+                <div class="type-example">
+                    <p><strong>Q:</strong> What should I have for dinner?</p>
+                    <p><strong>A:</strong> A pizza. Or a salad. Or just sadness. I'm a bot, not a nutritionist.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Questions -->
+    <section class="popular-questions">
+        <div class="section-header">
+            <h2 class="section-title">Popular Questions (That People Regret Asking)</h2>
+            <p class="section-subtitle">
+                Here are the questions other users have asked. Learn from their mistakes.
+            </p>
+        </div>
+        
+        <div class="questions-grid" id="popular-questions">
+            <div class="question-card">
+                <div class="question-text">What's the meaning of life?</div>
+                <div class="question-answer">42. But you're not special enough for it to matter.</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">2 hours ago</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-text">How do I be happy?</div>
+                <div class="question-answer">Step 1: Lower expectations. Step 2: Repeat Step 1.</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">5 hours ago</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-text">Am I a failure?</div>
+                <div class="question-answer">Yes. But so is everyone else. Welcome to the club.</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">1 day ago</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-text">Should I quit my job?</div>
+                <div class="question-answer">Probably. But you'll just find another job to hate. The cycle continues.</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">1 day ago</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-text">Will I ever find love?</div>
+                <div class="question-answer">Maybe. But probably not. Have you seen your standards?</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">2 days ago</span>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-text">Why am I so tired?</div>
+                <div class="question-answer">Because life is exhausting and you're not getting enough sleep. Or iron. Or joy.</div>
+                <div class="question-meta">
+                    <span class="asked-by">Asked by: Anonymous</span>
+                    <span class="asked-time">3 days ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready for Some Brutal Honesty?</h2>
+            <p class="cta-subtitle">
+                Ask STUPID anything. Get an answer that's equal parts helpful and hurtful. It's like therapy, but worse.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="ask-now">
+                    <span class="button-text">Ask Now</span>
+                    <span class="button-subtext">(You'll regret it)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View More Questions</span>
+                    <span class="button-subtext">(More regret)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Giving you the answers you don't want since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Answers may cause emotional distress.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/features/ask-stupid.js"></script>
+</body>
+</html>

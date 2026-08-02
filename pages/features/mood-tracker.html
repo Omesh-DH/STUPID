@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker (Judgmental Edition) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link active">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero mood-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Mood Tracker (Judgmental Edition)</h1>
+                <p class="page-subtitle">
+                    Log your mood and receive the judgment you deserve. Our AI-powered responses will make you question why you even bother.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="moods-logged">0</span>
+                        <span class="page-stat-label">Moods Logged</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="judgments-received">0</span>
+                        <span class="page-stat-label">Judgments Received</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="average-mood">😐</span>
+                        <span class="page-stat-label">Average Mood</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder mood">
+                    <div class="placeholder-icon">😊😢😡😴</div>
+                    <p class="placeholder-text">Mood face (judging you)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Logger -->
+    <section class="mood-logger">
+        <div class="logger-content">
+            <div class="logger-header">
+                <h2 class="logger-title">How Are You Feeling Today?</h2>
+                <p class="logger-subtitle">
+                    Select your mood. We'll tell you exactly what we think about it.
+                </p>
+            </div>
+            
+            <div class="mood-options">
+                <div class="mood-option" data-mood="happy">
+                    <div class="mood-emoji">😊</div>
+                    <span class="mood-label">Happy</span>
+                    <div class="mood-response">Cool. Don't get used to it.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="sad">
+                    <div class="mood-emoji">😢</div>
+                    <span class="mood-label">Sad</span>
+                    <div class="mood-response">Have you tried not being sad? Just a thought.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="anxious">
+                    <div class="mood-emoji">😨</div>
+                    <span class="mood-label">Anxious</span>
+                    <div class="mood-response">Imagine if this energy went into something productive.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="angry">
+                    <div class="mood-emoji">😡</div>
+                    <span class="mood-label">Angry</span>
+                    <div class="mood-response">Yell into a pillow. Or a void. Same thing.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="bored">
+                    <div class="mood-emoji">🥱</div>
+                    <span class="mood-label">Bored</span>
+                    <div class="mood-response">Maybe if you had hobbies, you wouldn't be bored.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="tired">
+                    <div class="mood-emoji">😴</div>
+                    <span class="mood-label">Tired</span>
+                    <div class="mood-response">Sleep is for the weak. But you're weak, so go ahead.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="excited">
+                    <div class="mood-emoji">😃</div>
+                    <span class="mood-label">Excited</span>
+                    <div class="mood-response">Calm down. It's not that exciting.</div>
+                </div>
+                
+                <div class="mood-option" data-mood="meh">
+                    <div class="mood-emoji">😐</div>
+                    <span class="mood-label">Meh</span>
+                    <div class="mood-response">That's it? That's the mood? Wow.</div>
+                </div>
+            </div>
+            
+            <div class="mood-actions">
+                <div class="mood-intensity">
+                    <label for="mood-intensity">Intensity:</label>
+                    <input type="range" id="mood-intensity" min="1" max="10" value="5">
+                    <span id="intensity-value">5</span>
+                </div>
+                <button class="cta-button primary large" id="log-mood">
+                    <span class="button-text">Log Mood</span>
+                    <span class="button-subtext">(Regret it later)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Response Display -->
+    <section class="mood-response-display" id="mood-response-section" style="display: none;">
+        <div class="response-content">
+            <div class="response-card">
+                <div class="response-emoji" id="response-emoji">😐</div>
+                <h3 class="response-title" id="response-title">Your Mood</h3>
+                <p class="response-message" id="response-message">
+                    We're judging you right now.
+                </p>
+                <div class="response-meta">
+                    <span class="response-time" id="response-time">Just now</span>
+                    <span class="response-intensity" id="response-intensity">Intensity: 5/10</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood History -->
+    <section class="mood-history">
+        <div class="section-header">
+            <h2 class="section-title">Your Mood History (A Pattern of Disappointment)</h2>
+            <p class="section-subtitle">
+                Here's a record of all your moods. Notice a pattern? We do. It's called "unhappy."
+            </p>
+        </div>
+        
+        <div class="history-filters">
+            <button class="filter-button active" data-filter="all">All Time</button>
+            <button class="filter-button" data-filter="week">Last Week</button>
+            <button class="filter-button" data-filter="month">Last Month</button>
+        </div>
+        
+        <div class="mood-chart-container">
+            <canvas id="moodChart"></canvas>
+        </div>
+        
+        <div class="mood-list" id="mood-list">
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3 class="empty-title">No Moods Logged Yet</h3>
+                <p class="empty-description">
+                    You haven't logged any moods. We can't judge you if you don't participate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mood Insights -->
+    <section class="mood-insights">
+        <div class="section-header">
+            <h2 class="section-title">Insights (That Will Make You Feel Worse)</h2>
+            <p class="section-subtitle">
+                Our AI has analyzed your mood data. The results are... concerning.
+            </p>
+        </div>
+        
+        <div class="insights-grid">
+            <div class="insight-card mood-insight">
+                <div class="insight-icon">😢</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Most Common Mood</h3>
+                    <p class="insight-description" id="most-common-mood">
+                        You haven't logged any moods yet. We can't even judge you properly.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card mood-insight">
+                <div class="insight-icon">📉</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Mood Trend</h3>
+                    <p class="insight-description" id="mood-trend">
+                        No trend data available. Probably for the best.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card mood-insight">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">Mood Stability</h3>
+                    <p class="insight-description" id="mood-stability">
+                        Your moods are... nonexistent. Good job.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="insight-card mood-insight">
+                <div class="insight-icon">💡</div>
+                <div class="insight-content">
+                    <h3 class="insight-title">AI Recommendation</h3>
+                    <p class="insight-description" id="ai-recommendation">
+                        We recommend you stop using this app. It's not helping.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Be Judged?</h2>
+            <p class="cta-subtitle">
+                Log your mood daily and receive the harsh truth you've been avoiding. It's like therapy, but worse.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="log-another-mood">
+                    <span class="button-text">Log Another Mood</span>
+                    <span class="button-subtext">(We'll judge you again)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">View All Moods</span>
+                    <span class="button-subtext">(Prepare to cringe)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Judging your moods since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Your moods are our business.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/features/mood-tracker.js"></script>
+</body>
+</html>

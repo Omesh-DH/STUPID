@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Intake Reminder (Hydration Guilt) | STUPID</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../meditation.html" class="nav-link">Meditate</a>
+                <a href="../motivation.html" class="nav-link">Motivation</a>
+                <a href="../tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Features ▼</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feature Sub-Nav -->
+    <nav class="sub-nav">
+        <div class="sub-nav-content">
+            <a href="daily-affirmations.html" class="sub-nav-link">Daily Affirmations</a>
+            <a href="mood-tracker.html" class="sub-nav-link">Mood Tracker</a>
+            <a href="step-counter.html" class="sub-nav-link">Step Counter</a>
+            <a href="water-reminder.html" class="sub-nav-link active">Water Reminder</a>
+            <a href="sleep-tracker.html" class="sub-nav-link">Sleep Tracker</a>
+            <a href="ask-stupid.html" class="sub-nav-link">Ask STUPID</a>
+            <a href="wellness-challenges.html" class="sub-nav-link">Challenges</a>
+            <a href="progress-dashboard.html" class="sub-nav-link">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero water-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Water Intake Reminder (Hydration Guilt)</h1>
+                <p class="page-subtitle">
+                    Drink water. Your body is 60% water. Your brain is 100% dehydration. Fix it.
+                </p>
+                <div class="page-stats">
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="glasses-today">0</span>
+                        <span class="page-stat-label">Glasses Today</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="total-glasses">0</span>
+                        <span class="page-stat-label">Total Glasses</span>
+                    </div>
+                    <div class="page-stat">
+                        <span class="page-stat-number" id="hydration-score">0%</span>
+                        <span class="page-stat-label">Hydration Score</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder water">
+                    <div class="placeholder-icon">💧</div>
+                    <p class="placeholder-text">Water glass (empty, like your soul)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Tracker -->
+    <section class="water-tracker">
+        <div class="tracker-content">
+            <div class="tracker-header">
+                <h2 class="tracker-title">Track Your Water Intake</h2>
+                <p class="tracker-subtitle">
+                    Every glass counts. Mostly because you're not drinking enough.
+                </p>
+            </div>
+            
+            <div class="water-display">
+                <div class="water-glass-container">
+                    <div class="water-glass">
+                        <div class="water-fill" id="water-fill" style="height: 0%"></div>
+                        <div class="glass-lines">
+                            <span>8</span>
+                            <span>6</span>
+                            <span>4</span>
+                            <span>2</span>
+                            <span>0</span>
+                        </div>
+                    </div>
+                    <div class="water-stats">
+                        <div class="water-stat">
+                            <span class="stat-value" id="current-glasses">0</span>
+                            <span class="stat-label">/ 8 glasses</span>
+                        </div>
+                        <div class="water-stat">
+                            <span class="stat-value" id="water-percentage">0%</span>
+                            <span class="stat-label">Hydrated</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="water-message" id="water-message">
+                    <h3>You're dehydrated. This explains so much.</h3>
+                    <p>Drink water. Your skin is begging you.</p>
+                </div>
+            </div>
+            
+            <div class="water-actions">
+                <div class="action-buttons">
+                    <button class="water-button" data-amount="1" id="add-glass">
+                        <span class="button-icon">+1</span>
+                        <span class="button-text">Add Glass</span>
+                    </button>
+                    <button class="water-button" data-amount="2" id="add-two-glasses">
+                        <span class="button-icon">+2</span>
+                        <span class="button-text">Add 2 Glasses</span>
+                    </button>
+                    <button class="water-button" data-amount="4" id="add-four-glasses">
+                        <span class="button-icon">+4</span>
+                        <span class="button-text">Add 4 Glasses</span>
+                    </button>
+                </div>
+                
+                <div class="action-options">
+                    <button class="cta-button outline" id="remove-glass">
+                        <span class="button-text">Remove Glass</span>
+                        <span class="button-subtext">(You didn't drink it)</span>
+                    </button>
+                    <button class="cta-button outline" id="reset-water">
+                        <span class="button-text">Reset</span>
+                        <span class="button-subtext">(Start over, loser)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hydration Shaming -->
+    <section class="hydration-shaming">
+        <div class="section-header">
+            <h2 class="section-title">How Dehydrated Are You?</h2>
+            <p class="section-subtitle">
+                Let's see how your water intake compares to basic human needs.
+            </p>
+        </div>
+        
+        <div class="shaming-grid">
+            <div class="shame-card hydration">
+                <div class="shame-icon">🏜️</div>
+                <div class="shame-range">
+                    <span class="range-min">0</span>
+                    <span class="range-max">1</span>
+                </div>
+                <h3 class="shame-title">Desert</h3>
+                <p class="shame-description">
+                    You're dehydrated. This explains so much. Your brain is basically a raisin.
+                </p>
+            </div>
+            
+            <div class="shame-card hydration">
+                <div class="shame-icon">🌵</div>
+                <div class="shame-range">
+                    <span class="range-min">2</span>
+                    <span class="range-max">3</span>
+                </div>
+                <h3 class="shame-title">Cactus</h3>
+                <p class="shame-description">
+                    Plants need water. You're basically a plant with anxiety. Drink up.
+                </p>
+            </div>
+            
+            <div class="shame-card hydration">
+                <div class="shame-icon">🌊</div>
+                <div class="shame-range">
+                    <span class="range-min">4</span>
+                    <span class="range-max">5</span>
+                </div>
+                <h3 class="shame-title">Puddle</h3>
+                <p class="shame-description">
+                    You're slightly hydrated. Congratulations, you've achieved the bare minimum.
+                </p>
+            </div>
+            
+            <div class="shame-card hydration">
+                <div class="shame-icon">🌊</div>
+                <div class="shame-range">
+                    <span class="range-min">6</span>
+                    <span class="range-max">7</span>
+                </div>
+                <h3 class="shame-title">Lake</h3>
+                <p class="shame-description">
+                    You're hydrated! Your skin is probably less ashy now. Good job.
+                </p>
+            </div>
+            
+            <div class="shame-card hydration">
+                <div class="shame-icon">🌊</div>
+                <div class="shame-range">
+                    <span class="range-min">8</span>
+                    <span class="range-max">∞</span>
+                </div>
+                <h3 class="shame-title">Ocean</h3>
+                <p class="shame-description">
+                    You're overhydrated. Are you trying to drown your sorrows? Literally?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Reminders -->
+    <section class="water-reminders">
+        <div class="section-header">
+            <h2 class="section-title">Hydration Reminders (That You'll Ignore)</h2>
+            <p class="section-subtitle">
+                Set up reminders to drink water. You'll ignore them. But at least we tried.
+            </p>
+        </div>
+        
+        <div class="reminders-content">
+            <div class="reminder-options">
+                <div class="reminder-option">
+                    <div class="reminder-time">
+                        <span class="time-icon">⏰</span>
+                        <span class="time-text">Every Hour</span>
+                    </div>
+                    <p class="reminder-description">
+                        Get reminded every hour. You'll ignore most of them.
+                    </p>
+                    <label class="reminder-toggle">
+                        <input type="checkbox" class="reminder-checkbox">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="reminder-option">
+                    <div class="reminder-time">
+                        <span class="time-icon">⏰</span>
+                        <span class="time-text">Every 2 Hours</span>
+                    </div>
+                    <p class="reminder-description">
+                        Get reminded every 2 hours. You'll forget to drink anyway.
+                    </p>
+                    <label class="reminder-toggle">
+                        <input type="checkbox" class="reminder-checkbox">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="reminder-option">
+                    <div class="reminder-time">
+                        <span class="time-icon">⏰</span>
+                        <span class="time-text">Every 3 Hours</span>
+                    </div>
+                    <p class="reminder-description">
+                        Get reminded every 3 hours. Your kidneys will thank you. Maybe.
+                    </p>
+                    <label class="reminder-toggle">
+                        <input type="checkbox" class="reminder-checkbox">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="reminder-option">
+                    <div class="reminder-time">
+                        <span class="time-icon">🌅</span>
+                        <span class="time-text">Morning</span>
+                    </div>
+                    <p class="reminder-description">
+                        Get a morning reminder. Start your day with hydration and shame.
+                    </p>
+                    <label class="reminder-toggle">
+                        <input type="checkbox" class="reminder-checkbox">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="reminder-option">
+                    <div class="reminder-time">
+                        <span class="time-icon">🌇</span>
+                        <span class="time-text">Evening</span>
+                    </div>
+                    <p class="reminder-description">
+                        Get an evening reminder. End your day with hydration and regret.
+                    </p>
+                    <label class="reminder-toggle">
+                        <input type="checkbox" class="reminder-checkbox">
+                        <span class="reminder-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water History -->
+    <section class="water-history">
+        <div class="section-header">
+            <h2 class="section-title">Your Hydration History (A Timeline of Thirst)</h2>
+            <p class="section-subtitle">
+                Here's a record of your daily water intake. Notice how most days are just sad and dehydrated.
+            </p>
+        </div>
+        
+        <div class="history-chart-container">
+            <canvas id="waterChart"></canvas>
+        </div>
+        
+        <div class="water-list" id="water-list">
+            <div class="empty-state">
+                <div class="empty-icon">📊</div>
+                <h3 class="empty-title">No Water Data Yet</h3>
+                <p class="empty-description">
+                    You haven't logged any water intake. Your body is a desert. Literally.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Challenges -->
+    <section class="water-challenges">
+        <div class="section-header">
+            <h2 class="section-title">Hydration Challenges (That You'll Fail)</h2>
+            <p class="section-subtitle">
+                Try to complete these hydration challenges. You won't. But at least you'll be slightly less dehydrated.
+            </p>
+        </div>
+        
+        <div class="challenges-grid">
+            <div class="challenge-card water-challenge">
+                <div class="challenge-badge">Daily</div>
+                <h3 class="challenge-title">8 Glasses</h3>
+                <p class="challenge-description">
+                    Drink 8 glasses of water today. The recommended daily amount for basic human function.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/8 glasses</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card water-challenge">
+                <div class="challenge-badge">Weekly</div>
+                <h3 class="challenge-title">56 Glasses</h3>
+                <p class="challenge-description">
+                    Drink 56 glasses this week. That's only 8 glasses per day. You can do it! (No you can't.)
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/56 glasses</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+            
+            <div class="challenge-card water-challenge">
+                <div class="challenge-badge">Streak</div>
+                <h3 class="challenge-title">7-Day Streak</h3>
+                <p class="challenge-description">
+                    Drink 8 glasses every day for 7 days. You'll break the streak by day 3.
+                </p>
+                <div class="challenge-progress">
+                    <div class="challenge-progress-bar">
+                        <div class="challenge-progress-fill" style="width: 0%"></div>
+                    </div>
+                    <span class="challenge-progress-text">0/7 days</span>
+                </div>
+                <button class="cta-button outline challenge-button">Start Challenge</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Hydrate?</h2>
+            <p class="cta-subtitle">
+                Start tracking your water intake and let us shame you into hydration. Your body will thank you. Maybe.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="add-water-cta">
+                    <span class="button-text">Add a Glass</span>
+                    <span class="button-subtext">(You're still dehydrated)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">Set Reminders</span>
+                    <span class="button-subtext">(You'll ignore them)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Shaming you into hydration since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="step-counter.html">Step Counter</a></li>
+                    <li><a href="water-reminder.html">Water Reminder</a></li>
+                    <li><a href="sleep-tracker.html">Sleep Tracker</a></li>
+                    <li><a href="ask-stupid.html">Ask STUPID</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../meditation.html">Meditate</a></li>
+                    <li><a href="../motivation.html">Motivation</a></li>
+                    <li><a href="../tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Drink water. Or don't. See if we care.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/features/water-reminder.js"></script>
+</body>
+</html>
