@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Database | STUPID</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤡</text></svg>">
+    <style>
+        .joke-hero {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #a855f7 100%);
+        }
+        .joke-card {
+            background: white;
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            transition: all var(--transition-base);
+        }
+        .joke-card:hover {
+            border-color: var(--primary-300);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .joke-text {
+            font-family: var(--font-secondary);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--neutral-800);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+        .joke-category {
+            display: inline-block;
+            background: var(--primary-100);
+            color: var(--primary-700);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+        }
+        .joke-actions {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+        .category-card.joke-category {
+            background: white;
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+        .category-card.joke-category:hover {
+            border-color: var(--primary-300);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .category-count {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--neutral-500);
+            margin-top: var(--space-xs);
+        }
+        .joke-nav {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        .joke-nav button {
+            padding: var(--space-sm) var(--space-lg);
+            background: white;
+            border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            color: var(--neutral-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .joke-nav button:hover {
+            border-color: var(--primary-500);
+            color: var(--primary-600);
+        }
+        .joke-nav button.active {
+            background: var(--primary-500);
+            border-color: var(--primary-500);
+            color: white;
+        }
+        .joke-stats {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        .joke-stat {
+            text-align: center;
+        }
+        .joke-stat-number {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            display: block;
+        }
+        .joke-stat-label {
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+        .joke-filters {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        .filter-button.joke-filter {
+            padding: var(--space-sm) var(--space-lg);
+            background: white;
+            border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            color: var(--neutral-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .filter-button.joke-filter:hover {
+            border-color: var(--primary-500);
+            color: var(--primary-600);
+        }
+        .filter-button.joke-filter.active {
+            background: var(--primary-500);
+            border-color: var(--primary-500);
+            color: white;
+        }
+        .joke-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .load-more {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🤡</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="pages/meditation.html" class="nav-link">Meditate</a>
+                <a href="pages/motivation.html" class="nav-link">Motivation</a>
+                <a href="pages/tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="pages/about.html" class="nav-link">About</a>
+                <a href="pages/features/daily-affirmations.html" class="nav-link">Features</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero joke-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">STUPID Joke Database</h1>
+                <p class="page-subtitle">
+                    A massive collection of dad jokes, dark humor, and satirical content to make you groan, laugh, or cry.
+                </p>
+                <div class="joke-stats">
+                    <div class="joke-stat">
+                        <span class="joke-stat-number" id="total-jokes">0</span>
+                        <span class="joke-stat-label">Total Jokes</span>
+                    </div>
+                    <div class="joke-stat">
+                        <span class="joke-stat-number" id="total-categories">0</span>
+                        <span class="joke-stat-label">Categories</span>
+                    </div>
+                    <div class="joke-stat">
+                        <span class="joke-stat-number" id="joke-quality">100%</span>
+                        <span class="joke-stat-label">Cringe Level</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">😂</div>
+                    <p class="placeholder-text">Person laughing (or crying)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joke of the Day -->
+    <section class="joke-section">
+        <div class="section-header">
+            <h2 class="section-title">Joke of the Day</h2>
+            <p class="section-subtitle">
+                Here's a randomly selected joke to start your day with a groan.
+            </p>
+        </div>
+        <div class="joke-display">
+            <div class="joke-card featured">
+                <span class="joke-category" id="joke-category">Loading...</span>
+                <p class="joke-text" id="joke-text">Loading joke...</p>
+                <div class="joke-actions">
+                    <button class="cta-button primary" id="new-joke">
+                        <span class="button-text">New Joke</span>
+                        <span class="button-subtext">(It won't be better)</span>
+                    </button>
+                    <button class="cta-button outline" id="share-joke">
+                        <span class="button-text">Share</span>
+                        <span class="button-subtext">(No one will laugh)</span>
+                    </button>
+                    <button class="cta-button outline" id="save-joke">
+                        <span class="button-text">Save</span>
+                        <span class="button-subtext">(You'll forget it)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="joke-categories">
+        <div class="section-header">
+            <h2 class="section-title">Browse by Category</h2>
+            <p class="section-subtitle">
+                Select a category to explore jokes that will make you question your life choices.
+            </p>
+        </div>
+        <div class="category-grid" id="category-grid">
+            <!-- Categories will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Joke List -->
+    <section class="joke-list-section">
+        <div class="section-header">
+            <h2 class="section-title">Joke List</h2>
+            <p class="section-subtitle">
+                Browse our entire collection of jokes. Warning: May cause eye rolls, groans, and existential dread.
+            </p>
+        </div>
+        <div class="joke-filters">
+            <button class="filter-button joke-filter active" data-filter="all">All Jokes</button>
+            <button class="filter-button joke-filter" data-filter="dadJokes">Dad Jokes</button>
+            <button class="filter-button joke-filter" data-filter="darkDadJokes">Dark Dad Jokes</button>
+            <button class="filter-button joke-filter" data-filter="wellnessRoasts">Wellness Roasts</button>
+            <button class="filter-button joke-filter" data-filter="corporateGaslighting">Corporate Gaslighting</button>
+            <button class="filter-button joke-filter" data-filter="randomChaos">Random Chaos</button>
+        </div>
+        <div class="joke-list" id="joke-list">
+            <!-- Jokes will be loaded here -->
+        </div>
+        <div class="load-more">
+            <button class="cta-button outline" id="load-more">
+                <span class="button-text">Load More</span>
+                <span class="button-subtext">(There's always more cringe)</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Random Joke Generator -->
+    <section class="random-joke">
+        <div class="section-header">
+            <h2 class="section-title">Random Joke Generator</h2>
+            <p class="section-subtitle">
+                Get a random joke from any category. Perfect for when you need a quick laugh or a reason to sigh.
+            </p>
+        </div>
+        <div class="joke-nav">
+            <button class="cta-button primary" id="random-dad">Dad Joke</button>
+            <button class="cta-button primary" id="random-dark">Dark Dad Joke</button>
+            <button class="cta-button primary" id="random-wellness">Wellness Roast</button>
+            <button class="cta-button primary" id="random-corporate">Corporate Gaslighting</button>
+            <button class="cta-button primary" id="random-chaos">Random Chaos</button>
+            <button class="cta-button primary" id="random-any">Any Joke</button>
+        </div>
+        <div class="joke-display">
+            <div class="joke-card" id="random-joke-card">
+                <span class="joke-category" id="random-joke-category">?</span>
+                <p class="joke-text" id="random-joke-text">Click a button to get a random joke!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Want More Jokes?</h2>
+            <p class="cta-subtitle">
+                Our joke database is constantly growing. Check back often for new material to make you groan.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" id="surprise-me">
+                    <span class="button-text">Surprise Me</span>
+                    <span class="button-subtext">(You'll regret it)</span>
+                </button>
+                <button class="cta-button secondary large">
+                    <span class="button-text">Browse All</span>
+                    <span class="button-subtext">(So much cringe)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">🤡</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Making you groan since 2024.
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/meditation.html">Meditate</a></li>
+                    <li><a href="pages/motivation.html">Motivation</a></li>
+                    <li><a href="pages/tracking.html">Tracking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h4 class="footer-heading">Features</h4>
+                <ul class="footer-links">
+                    <li><a href="pages/features/daily-affirmations.html">Affirmations</a></li>
+                    <li><a href="pages/features/mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="pages/features/step-counter.html">Step Counter</a></li>
+                    <li><a href="pages/features/water-reminder.html">Water Reminder</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                © 2024 STUPID. All rights reserved. | Jokes may cause eye rolls, groans, or existential crises.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/data/jokes-database.js"></script>
+    <script src="js/jokes.js"></script>
+</body>
+</html>
