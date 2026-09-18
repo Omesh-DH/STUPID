@@ -4,6 +4,21 @@
  */
 
 // ============================================
+// Language Support
+// ============================================
+let currentLanguage = localStorage.getItem('stupid_language') || 'en';
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('stupid_language', lang);
+    updateLanguage();
+}
+
+function getLanguage() {
+    return currentLanguage;
+}
+
+// ============================================
 // DOM Content Loaded
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initProgressTracking();
     initRandomMessages();
+    initLanguageToggle();
 });
 
 // ============================================
@@ -28,22 +44,39 @@ function initLoadingScreen() {
     const loadingText = document.querySelector('.loading-text');
     
     // Random loading messages
-    const loadingMessages = [
-        'Loading... unlike your potential.',
-        'Please wait... much like your career progress.',
-        'Thinking... something you should try.',
-        'Calculating how stupid you are...',
-        'Generating excuses...',
-        'Loading your regrets...',
-        'Compiling your failures...',
-        'Preparing to disappoint you...',
-        'Initializing existential dread...',
-        'Booting up your coping mechanisms...'
-    ];
+    const loadingMessages = {
+        en: [
+            'Loading... unlike your potential.',
+            'Please wait... much like your career progress.',
+            'Thinking... something you should try.',
+            'Calculating how stupid you are...',
+            'Generating excuses...',
+            'Loading your regrets...',
+            'Compiling your failures...',
+            'Preparing to disappoint you...',
+            'Initializing existential dread...',
+            'Booting up your coping mechanisms...'
+        ],
+        de: [
+            'Lädt... anders als dein Potenzial.',
+            'Bitte warten... ähnlich wie dein Karrierefortschritt.',
+            'Nachdenken... etwas, das du versuchen solltest.',
+            'Berechne wie dumm du bist...',
+            'Generiere Ausreden...',
+            'Lade deine Reue...',
+            'Kompiliere deine Misserfolge...',
+            'Bereite dich darauf vor, dich zu enttäuschen...',
+            'Initialisiere existenzielle Angst...',
+            'Starte deine Bewältigungsmechanismen...'
+        ]
+    };
+    
+    // Get messages for current language
+    const currentLoadingMessages = loadingMessages[currentLanguage] || loadingMessages.en;
     
     // Set random message
     if (loadingText) {
-        loadingText.textContent = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+        loadingText.textContent = currentLoadingMessages[Math.floor(Math.random() * currentLoadingMessages.length)];
     }
     
     // Hide loading screen after animation
@@ -405,9 +438,23 @@ function initRandomMessages() {
     });
     
     // Console easter egg
-    console.log('%c STUPID ', 'background: linear-gradient(135deg, #0ea5e9, #22c55e); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 5px;');
-    console.log('%c If you\'re an idiot, that\'s not my problem. ', 'color: #666; font-size: 14px;');
-    console.log('%c Stop looking at the console and go touch some grass. ', 'color: #999; font-size: 12px;');
+    const consoleMessages = {
+        en: [
+            '%c STUPID ', 'background: linear-gradient(135deg, #0ea5e9, #22c55e); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 5px;',
+            '%c If you\'re an idiot, that\'s not my problem. ', 'color: #666; font-size: 14px;',
+            '%c Stop looking at the console and go touch some grass. ', 'color: #999; font-size: 12px;'
+        ],
+        de: [
+            '%c STUPID ', 'background: linear-gradient(135deg, #0ea5e9, #22c55e); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 5px;',
+            '%c Wenn du ein Idiot bist, ist das nicht mein Problem. ', 'color: #666; font-size: 14px;',
+            '%c Hör auf, in die Konsole zu schauen und geh Gras anfassen. ', 'color: #999; font-size: 12px;'
+        ]
+    };
+    
+    const currentConsoleMessages = consoleMessages[currentLanguage] || consoleMessages.en;
+    console.log(currentConsoleMessages[0]);
+    console.log(currentConsoleMessages[1]);
+    console.log(currentConsoleMessages[2]);
 }
 
 // ============================================
@@ -478,7 +525,25 @@ window.addEventListener('beforeunload', () => {
     
     // Note: Modern browsers don't allow custom messages in beforeunload
     // This is just for fun in the console
-    console.log(messages[Math.floor(Math.random() * messages.length)]);
+    const leaveMessages = {
+        en: [
+            'Are you sure you want to leave? Your problems will still be here when you get back.',
+            'Leaving so soon? We were just getting to the good part (the disappointment).',
+            'Wait! Don\'t go! We haven\'t even started judging you yet!',
+            'Your journey to self-improvement is only 0% complete!',
+            'But what about all the progress you haven\'t made?'
+        ],
+        de: [
+            'Bist du sicher, dass du gehen willst? Deine Probleme werden immer noch hier sein, wenn du zurückkommst.',
+            'Geht schon so bald? Wir kamen gerade zum guten Teil (der Enttäuschung).',
+            'Warte! Geh nicht! Wir haben noch nicht einmal angefangen, dich zu verurteilen!',
+            'Deine Reise zur Selbstverbesserung ist erst zu 0% abgeschlossen!',
+            'Aber was ist mit allem Fortschritt, den du nicht gemacht hast?'
+        ]
+    };
+    
+    const currentLeaveMessages = leaveMessages[currentLanguage] || leaveMessages.en;
+    console.log(currentLeaveMessages[Math.floor(Math.random() * currentLeaveMessages.length)]);
 });
 
 // ============================================
@@ -540,6 +605,54 @@ window.addEventListener('load', () => {
 });
 
 // ============================================
+// Language Toggle
+// ============================================
+function initLanguageToggle() {
+    // Check if language toggle already exists
+    if (document.getElementById('language-toggle')) return;
+    
+    // Create language toggle button in header
+    const header = document.querySelector('.header');
+    if (!header) return;
+    
+    const langToggle = document.createElement('div');
+    langToggle.id = 'language-toggle';
+    langToggle.className = 'language-toggle';
+    langToggle.style.cssText = `
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    `;
+    
+    const langBtn = document.createElement('button');
+    langBtn.className = 'lang-btn';
+    langBtn.style.cssText = `
+        background: transparent;
+        border: 2px solid var(--neutral-300);
+        border-radius: var(--radius-md);
+        padding: var(--space-xs) var(--space-md);
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        color: var(--neutral-700);
+    `;
+    langBtn.textContent = currentLanguage === 'de' ? 'DE' : 'EN';
+    langBtn.title = currentLanguage === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln';
+    
+    langBtn.addEventListener('click', () => {
+        const newLang = currentLanguage === 'de' ? 'en' : 'de';
+        setLanguage(newLang);
+        langBtn.textContent = newLang === 'de' ? 'DE' : 'EN';
+        langBtn.title = newLang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln';
+        location.reload();
+    });
+    
+    langToggle.appendChild(langBtn);
+    header.querySelector('.header-content').appendChild(langToggle);
+}
+
+// ============================================
 // Export for other modules
 // ============================================
 window.STUPID = {
@@ -547,5 +660,7 @@ window.STUPID = {
     createConfetti,
     initScrollAnimations,
     debounce,
-    throttle
+    throttle,
+    setLanguage,
+    getLanguage
 };

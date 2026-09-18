@@ -8,6 +8,94 @@
 // ============================================
 const STUPID_JOKES = {
     // ============================================
+    // GERMAN PHRASES
+    // ============================================
+    germanPhrases: [
+        "Es gibt keine dummen Fragen. Nur dumme Menschen.",
+        "Deine Dummheit ist nicht mein Problem.",
+        "Das ist nicht mein Zirkus, nicht meine Affen.",
+        "Alles Gute kommt von oben. Auch der Hagel."
+    ],
+    
+    // ============================================
+    // GERMAN DAD JOKES
+    // ============================================
+    germanDadJokes: [
+        "Warum können Geister nicht lügen? Weil man durch sie hindurchsehen kann.",
+        "Treffen sich zwei Magneten. Sagt der eine: 'Was soll ich heute bloß anziehen?'",
+        "Ich habe einen Witz über die Mauer. Aber der ist noch nicht so richtig rübergekommen."
+    ],
+    
+    // ============================================
+    // GERMAN CORPORATE ROASTS
+    // ============================================
+    germanCorporateRoasts: [
+        "Wir sind wie eine Familie. (Eine kaputte.)",
+        "Homeoffice: Wo 'Anzug' 'Oben Anzug, unten Jogginghose' bedeutet.",
+        "Das Meeting hätte eine E-Mail sein können. (Diese E-Mail hätte Schweigen sein können.)"
+    ],
+    
+    // ============================================
+    // GERMAN LOADING MESSAGES
+    // ============================================
+    germanLoadingMessages: [
+        "Lädt... anders als dein Potenzial.",
+        "Bitte warten... ähnlich wie dein Karrierefortschritt.",
+        "Nachdenken... etwas, das du versuchen solltest."
+    ],
+    
+    // ============================================
+    // GERMAN ERROR MESSAGES
+    // ============================================
+    germanErrorMessages: [
+        "404: Motivation nicht gefunden.",
+        "Etwas ist schiefgelaufen. Genau wie deine Lebensentscheidungen.",
+        "Versuche es nochmal. Und nochmal. Und nochmal. Umarme den Schmerz.",
+        "Fehler: Benutzerkompetenz unzureichend."
+    ],
+    
+    // ============================================
+    // GERMAN BUTTON TEXT
+    // ============================================
+    germanButtonText: {
+        submit: "Verpflichte dich zu dieser schlechten Entscheidung",
+        cancel: "Gib auf (Schon wieder)",
+        learnMore: "Füttere deine Illusion von Fortschritt",
+        getStarted: "Tue so, als würdest du weitermachen"
+    },
+    
+    // ============================================
+    // GERMAN ONBOARDING QUESTIONS
+    // ============================================
+    germanOnboardingQuestions: {
+        goal: {
+            question: "Was ist dein Ziel?",
+            options: ["Nicht sterben", "Lebendig auf LinkedIn aussehen", "Menschen beeindrucken, die ich nicht mag"]
+        },
+        feeling: {
+            question: "Wie fühlst du dich heute?",
+            options: ["Überlebend", "Alles hinterfragend", "Innerlich weinend"]
+        },
+        reason: {
+            question: "Was führt dich hierher?",
+            options: ["Verzweiflung", "Neugier", "Man hat mir Geld gegeben, das herunterzuladen"]
+        }
+    },
+    
+    // ============================================
+    // GERMAN ACHIEVEMENTS
+    // ============================================
+    germanAchievements: [
+        "Du hast die App geöffnet! (Erstes Mal ist gratis.)",
+        "7-Tage-Serie! (Du hast 7 Tage konsequent verschwendet.)",
+        "Frage gestellt! (Sie war trotzdem dumm.)",
+        "Herausforderung abgeschlossen! (Wir sind genauso überrascht wie du.)"
+    ],
+
+    // ============================================
+    // LOADING SCREEN MESSAGES
+    // ============================================
+    // ============================================
     // LOADING SCREEN MESSAGES
     // ============================================
     loadingMessages: [
@@ -693,6 +781,46 @@ function getTotalJokeCount() {
 }
 
 // ============================================
+// German Language Support Functions
+// ============================================
+
+/**
+ * Get German jokes by category
+ */
+function getGermanJokes(category) {
+    const germanCategories = {
+        'dadJokes': 'germanDadJokes',
+        'darkDadJokes': 'germanDadJokes',
+        'wellnessRoasts': 'germanCorporateRoasts',
+        'corporateGaslighting': 'germanCorporateRoasts',
+        'randomChaos': 'germanPhrases'
+    };
+    
+    const germanCategory = germanCategories[category] || 'germanDadJokes';
+    const jokes = STUPID_JOKES[germanCategory];
+    if (!jokes || jokes.length === 0) {
+        return getGermanJokes('germanDadJokes');
+    }
+    return jokes[Math.floor(Math.random() * jokes.length)];
+}
+
+/**
+ * Get German loading message
+ */
+function getGermanLoadingMessage() {
+    const messages = STUPID_JOKES.germanLoadingMessages;
+    return messages[Math.floor(Math.random() * messages.length)];
+}
+
+/**
+ * Get German error message
+ */
+function getGermanErrorMessage() {
+    const messages = STUPID_JOKES.germanErrorMessages;
+    return messages[Math.floor(Math.random() * messages.length)];
+}
+
+// ============================================
 // Export for use in other modules
 // ============================================
 if (typeof module !== 'undefined' && module.exports) {
@@ -703,7 +831,10 @@ if (typeof module !== 'undefined' && module.exports) {
         getMultipleRandomJokes,
         getAllCategories,
         getCategoryCount,
-        getTotalJokeCount
+        getTotalJokeCount,
+        getGermanJokes,
+        getGermanLoadingMessage,
+        getGermanErrorMessage
     };
 }
 
@@ -715,3 +846,6 @@ window.getMultipleRandomJokes = getMultipleRandomJokes;
 window.getAllCategories = getAllCategories;
 window.getCategoryCount = getCategoryCount;
 window.getTotalJokeCount = getTotalJokeCount;
+window.getGermanJokes = getGermanJokes;
+window.getGermanLoadingMessage = getGermanLoadingMessage;
+window.getGermanErrorMessage = getGermanErrorMessage;
