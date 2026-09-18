@@ -8,6 +8,63 @@
 // ============================================
 const STUPID_JOKES = {
     // ============================================
+    // LOADING SCREEN MESSAGES
+    // ============================================
+    loadingMessages: [
+        "Loading... unlike your potential.",
+        "Please wait... much like your career progress.",
+        "Thinking... something you should try."
+    ],
+    
+    // ============================================
+    // ERROR MESSAGES
+    // ============================================
+    errorMessages: [
+        "404: Motivation not found.",
+        "Something went wrong. Just like your life choices.",
+        "Try again. And again. And again. Embrace the pain.",
+        "Error: User competence level insufficient."
+    ],
+    
+    // ============================================
+    // BUTTON TEXT
+    // ============================================
+    buttonText: {
+        submit: "Commit to This Poor Decision",
+        cancel: "Give Up (Again)",
+        learnMore: "Feed Your Illusion of Progress",
+        getStarted: "Pretend You'll Follow Through"
+    },
+    
+    // ============================================
+    // ONBOARDING QUESTIONS
+    // ============================================
+    onboardingQuestions: {
+        goal: {
+            question: "What's your goal?",
+            options: ["Not dying", "Looking alive on LinkedIn", "Impressing people I don't like"]
+        },
+        feeling: {
+            question: "How do you feel today?",
+            options: ["Surviving", "Questioning everything", "Crying internally"]
+        },
+        reason: {
+            question: "What brings you here?",
+            options: ["Desperation", "Curiosity", "I was paid to download this"]
+        }
+    },
+    
+    // ============================================
+    // ACHIEVEMENT BADGES
+    // ============================================
+    achievementBadges: [
+        "You opened the app! (First time's free.)",
+        "7-day streak! (You've wasted 7 days consistently.)",
+        "Asked a question! (It was still stupid though.)",
+        "Completed a challenge! (We're as surprised as you are.)"
+    ],
+    
+    // ============================================
     // DAD JOKES (The Cringe Collection)
     // ============================================
     dadJokes: [

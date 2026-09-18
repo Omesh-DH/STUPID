@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements | STUPID</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>\ud83e\udd21</text></svg>">
+    <style>
+        .achievements-hero {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #a855f7 100%);
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .achievement-card {
+            background: white;
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .achievement-card:hover {
+            border-color: var(--primary-300);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        
+        .achievement-card.locked {
+            opacity: 0.6;
+            background: var(--neutral-50);
+        }
+        
+        .achievement-card.locked:hover {
+            border-color: var(--neutral-300);
+            transform: none;
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+        
+        .achievement-title {
+            font-family: var(--font-secondary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            text-align: center;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .achievement-description {
+            text-align: center;
+            color: var(--neutral-600);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .achievement-date {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--neutral-500);
+        }
+        
+        .achievement-progress {
+            width: 100%;
+            height: 4px;
+            background: var(--neutral-200);
+            border-radius: var(--radius-full);
+            margin-top: var(--space-md);
+            overflow: hidden;
+        }
+        
+        .achievement-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-500), var(--primary-700));
+            border-radius: var(--radius-full);
+            transition: width var(--transition-slow);
+        }
+        
+        .achievement-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .stat-number {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+        
+        .achievement-filters {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            padding: var(--space-sm) var(--space-lg);
+            background: white;
+            border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            font-weight: 500;
+            color: var(--neutral-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-button:hover {
+            border-color: var(--primary-500);
+            color: var(--primary-600);
+        }
+        
+        .filter-button.active {
+            background: var(--primary-500);
+            border-color: var(--primary-500);
+            color: white;
+        }
+        
+        .locked-message {
+            text-align: center;
+            padding: var(--space-xl);
+            color: var(--neutral-500);
+        }
+        
+        .locked-message em {
+            color: var(--primary-600);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">\ud83e\udd21</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="meditation.html" class="nav-link">Meditate</a>
+                <a href="motivation.html" class="nav-link">Motivation</a>
+                <a href="tracking.html" class="nav-link">Track Your Failure</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="achievements.html" class="nav-link active">Achievements</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero achievements-hero">
+        <div class="page-hero-gradient"></div>
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="page-title">Your Achievements</h1>
+                <p class="page-subtitle">
+                    A collection of accomplishments that prove you're at least trying. Sort of.
+                </p>
+            </div>
+            <div class="page-hero-image">
+                <div class="image-placeholder">
+                    <div class="placeholder-icon">\ud83c\udf89</div>
+                    <p class="placeholder-text">Your trophy shelf (mostly empty)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="achievement-stats-section">
+        <div class="section-header">
+            <h2 class="section-title">Your Progress (or Lack Thereof)</h2>
+            <p class="section-subtitle">
+                Numbers that prove you're either dedicated or delusional. Probably both.
+            </p>
+        </div>
+        <div class="achievement-stats">
+            <div class="stat-card">
+                <span class="stat-number" id="total-achievements">0</span>
+                <span class="stat-label">Achievements Unlocked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="total-locked">0</span>
+                <span class="stat-label">Achievements Locked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="completion-percent">0%</span>
+                <span class="stat-label">Completion Rate</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="days-since-first">0</span>
+                <span class="stat-label">Days Since First Achievement</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="achievement-filters-section">
+        <div class="achievement-filters">
+            <button class="filter-button active" data-filter="all">All Achievements</button>
+            <button class="filter-button" data-filter="unlocked">Unlocked</button>
+            <button class="filter-button" data-filter="locked">Locked</button>
+            <button class="filter-button" data-filter="recent">Recent</button>
+        </div>
+    </section>
+
+    <!-- Achievements Grid -->
+    <section class="achievements-list">
+        <div class="section-header">
+            <h2 class="section-title">Your Collection</h2>
+            <p class="section-subtitle">
+                Badges earned through sheer persistence or blind luck.
+            </p>
+        </div>
+        <div class="achievements-grid" id="achievements-grid">
+            <!-- Achievements will be loaded here -->
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="page-cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Want More Achievements?</h2>
+            <p class="cta-subtitle">
+                Keep using the app to unlock even more badges. Or don't. We're not your supervisor.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-button primary large" onclick="window.location.href='../index.html'">
+                    <span class="button-text">Commit to This Poor Decision</span>
+                    <span class="button-subtext">(Again)</span>
+                </button>
+                <button class="cta-button secondary large" onclick="shareAchievements()">
+                    <span class="button-text">Feed Your Illusion of Progress</span>
+                    <span class="button-subtext">(Share your "success")</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <div class="footer-logo">
+                    <span class="logo-icon">\ud83e\udd21</span>
+                    <h3 class="logo-text">STUPID</h3>
+                </div>
+                <p class="footer-description">
+                    Collecting achievements since 2024. Mostly the participation kind.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">
+                \u00a9 2024 STUPID. All rights reserved. | Achievements may be less impressive than they appear.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script>
+        // Achievement data
+        const allAchievements = [
+            {
+                id: 'first_open',
+                title: 'You opened the app!',
+                description: '(First time\'s free.)',
+                icon: '\ud83c\udf89',
+                category: 'beginner',
+                locked: false
+            },
+            {
+                id: 'onboarding_complete',
+                title: 'Completed onboarding!',
+                description: '(We\'re as surprised as you are.)',
+                icon: '\u2611',
+                category: 'beginner',
+                locked: false
+            },
+            {
+                id: '7_day_streak',
+                title: '7-day streak!',
+                description: '(You\'ve wasted 7 days consistently.)',
+                icon: '\ud83d\udd25',
+                category: 'streak',
+                locked: true,
+                unlockCondition: '7_day_streak'
+            },
+            {
+                id: 'asked_question',
+                title: 'Asked a question!',
+                description: '(It was still stupid though.)',
+                icon: '\ud83d\udc8c',
+                category: 'participation',
+                locked: true,
+                unlockCondition: 'asked_question'
+            },
+            {
+                id: 'completed_challenge',
+                title: 'Completed a challenge!',
+                description: '(We\'re as surprised as you are.)',
+                icon: '\ud83c\udf75',
+                category: 'challenge',
+                locked: true,
+                unlockCondition: 'completed_challenge'
+            },
+            {
+                id: 'meditation_master',
+                title: 'Meditation Master',
+                description: '(You fell asleep 10 times in a row.)',
+                icon: '\ud83e\uddd8',
+                category: 'meditation',
+                locked: true,
+                unlockCondition: '10_meditations'
+            },
+            {
+                id: 'joke_connoisseur',
+                title: 'Joke Connoisseur',
+                description: '(You\'ve read 100 terrible jokes.)',
+                icon: '\ud83d\ude02',
+                category: 'jokes',
+                locked: true,
+                unlockCondition: '100_jokes'
+            },
+            {
+                id: 'motivation_ignorer',
+                title: 'Motivation Ignorer',
+                description: '(You\'ve read 50 quotes and done nothing.)',
+                icon: '\ud83e\udd37',
+                category: 'motivation',
+                locked: true,
+                unlockCondition: '50_quotes'
+            },
+            {
+                id: 'tracking_failure',
+                title: 'Tracking Failure',
+                description: '(You\'ve tracked 30 days of not improving.)',
+                icon: '\ud83d\udcc9',
+                category: 'tracking',
+                locked: true,
+                unlockCondition: '30_days_tracking'
+            },
+            {
+                id: 'midnight_user',
+                title: 'Midnight User',
+                description: '(Using the app at 2 AM. We see you.)',
+                icon: '\ud83c\udf11',
+                category: 'dedication',
+                locked: true,
+                unlockCondition: 'midnight_use'
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Load user's achievements from localStorage
+        function loadUserAchievements() {
+            const savedAchievements = JSON.parse(localStorage.getItem('stupid_achievements')) || [];
+            
+            // Mark unlocked achievements
+            allAchievements.forEach(achievement => {
+                const isUnlocked = savedAchievements.some(
+                    saved => saved.id === achievement.id
+                );
+                achievement.locked = !isUnlocked;
+                
+                // If unlocked, add date from saved
+                if (!achievement.locked && !achievement.date) {
+                    const saved = savedAchievements.find(s => s.id === achievement.id);
+                    if (saved) {
+                        achievement.date = saved.timestamp;
+                    }
+                }
+            });
+            
+            return savedAchievements;
+        }
+
+        // Display achievements
+        function displayAchievements(filter = 'all') {
+            const grid = document.getElementById('achievements-grid');
+            if (!grid) return;
+
+            currentFilter = filter;
+            
+            let filteredAchievements = allAchievements;
+            
+            // Apply filter
+            if (filter === 'unlocked') {
+                filteredAchievements = allAchievements.filter(a => !a.locked);
+            } else if (filter === 'locked') {
+                filteredAchievements = allAchievements.filter(a => a.locked);
+            } else if (filter === 'recent') {
+                // Show unlocked achievements sorted by date (newest first)
+                filteredAchievements = allAchievements
+                    .filter(a => !a.locked && a.date)
+                    .sort((a, b) => new Date(b.date) - new Date(a.date));
+            }
+            
+            // Display achievements
+            grid.innerHTML = filteredAchievements.map(achievement => `
+                <div class="achievement-card ${achievement.locked ? 'locked' : ''}" 
+                     data-achievement="${achievement.id}"
+                     onclick="${achievement.locked ? '' : 'showAchievementDetail(this)'}">
+                    <div class="achievement-icon">${achievement.icon}</div>
+                    <h3 class="achievement-title">${achievement.title}</h3>
+                    <p class="achievement-description">${achievement.description}</p>
+                    ${achievement.date ? `<p class="achievement-date">Unlocked: ${formatDate(achievement.date)}</p>` : ''}
+                    ${achievement.locked ? '<p class="achievement-description"><em>Keep using the app to unlock</em></p>' : ''}
+                    <div class="achievement-progress">
+                        <div class="achievement-progress-fill" style="width: ${achievement.locked ? '0%' : '100%'}"></div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update stats
+            updateStats();
+        }
+
+        // Format date
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        // Update stats
+        function updateStats() {
+            const totalAchievements = allAchievements.length;
+            const unlockedAchievements = allAchievements.filter(a => !a.locked).length;
+            const lockedAchievements = totalAchievements - unlockedAchievements;
+            const completionPercent = Math.round((unlockedAchievements / totalAchievements) * 100);
+            
+            // Find first achievement date
+            const unlockedWithDates = allAchievements.filter(a => !a.locked && a.date);
+            let daysSinceFirst = 0;
+            if (unlockedWithDates.length > 0) {
+                const firstDate = new Date(unlockedWithDates[0].date);
+                const today = new Date();
+                daysSinceFirst = Math.floor((today - firstDate) / (1000 * 60 * 60 * 24));
+            }
+            
+            document.getElementById('total-achievements').textContent = unlockedAchievements;
+            document.getElementById('total-locked').textContent = lockedAchievements;
+            document.getElementById('completion-percent').textContent = `${completionPercent}%`;
+            document.getElementById('days-since-first').textContent = daysSinceFirst;
+        }
+
+        // Show achievement detail
+        function showAchievementDetail(card) {
+            const achievementId = card.dataset.achievement;
+            const achievement = allAchievements.find(a => a.id === achievementId);
+            
+            if (!achievement) return;
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>${achievement.title}</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="text-align: center; font-size: 3rem; margin-bottom: 1rem;">
+                            ${achievement.icon}
+                        </div>
+                        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 1rem;">
+                            ${achievement.description}
+                        </p>
+                        ${achievement.date ? `<p style="text-align: center; color: var(--neutral-500);">Unlocked: ${formatDate(achievement.date)}</p>` : ''}
+                        <p style="text-align: center; color: var(--neutral-500); margin-top: 1rem;">
+                            Category: ${achievement.category}
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="cta-button primary modal-button" onclick="shareAchievement('${achievement.title}')">
+                            Share
+                        </button>
+                        <button class="cta-button outline modal-button modal-close-btn">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            modal.classList.add('active');
+            
+            // Close handlers
+            modal.querySelector('.modal-close').addEventListener('click', () => {
+                modal.remove();
+            });
+            modal.querySelector('.modal-close-btn').addEventListener('click', () => {
+                modal.remove();
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        // Share achievement
+        function shareAchievement(title) {
+            const text = `Look at me! I achieved: ${title} - STUPID App`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Achievement copied to clipboard! (No one will care)');
+            });
+        }
+
+        // Share all achievements
+        function shareAchievements() {
+            const unlocked = allAchievements.filter(a => !a.locked);
+            const text = `I've unlocked ${unlocked.length} achievements on STUPID! ${unlocked.map(a => a.title).join(', ')}`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Your achievements copied! (Still no one will care)');
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load user's achievements
+            loadUserAchievements();
+            
+            // Display all achievements
+            displayAchievements();
+            
+            // Setup filter buttons
+            document.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    displayAchievements(button.dataset.filter);
+                });
+            });
+            
+            // Add animations
+            const cards = document.querySelectorAll('.achievement-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            });
+            
+            setTimeout(() => {
+                cards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }, 300);
+        });
+
+        // Console easter egg
+        console.log('%c STUPID Achievements ', 'background: linear-gradient(135deg, #f97316, #eab308); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 5px;');
+        console.log('%c Congratulations on your participation trophy! ', 'color: #666; font-size: 14px;');
+    </script>
+</body>
+</html>

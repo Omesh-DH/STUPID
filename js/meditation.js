@@ -173,8 +173,8 @@ function showMeditationModal(type) {
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="cta-button outline modal-cancel">Cancel</button>
-                <button class="cta-button primary modal-start">Start Session</button>
+                <button class="cta-button outline modal-cancel">Give Up (Again)</button>
+                <button class="cta-button primary modal-start">Commit to This Poor Decision</button>
             </div>
         </div>
     `;
@@ -219,8 +219,8 @@ function startMeditationSession(type, duration) {
             <h3>Session Started!</h3>
             <p>Your ${type} meditation session has begun.</p>
             <p>Duration: ${duration} minutes</p>
-            <p>You'll probably quit after 2 minutes.</p>
-            <button class="cta-button primary notification-close">Close</button>
+            <p>You'll probably quit after 2 minutes. Try again. And again. And again. Embrace the pain.</p>
+            <button class="cta-button primary notification-close">Cancel</button>
         </div>
     `;
     notification.style.cssText = `
@@ -275,7 +275,7 @@ function showChallengeNotification(title) {
             <h3>Challenge Started!</h3>
             <p>You've started the "${title}" challenge.</p>
             <p>Day 1: Set a goal. You'll abandon it by Day 3.</p>
-            <button class="cta-button primary notification-close">Got it</button>
+            <button class="cta-button primary notification-close">Feed Your Illusion of Progress</button>
         </div>
     `;
     notification.style.cssText = `

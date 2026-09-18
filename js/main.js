@@ -29,16 +29,16 @@ function initLoadingScreen() {
     
     // Random loading messages
     const loadingMessages = [
+        'Loading... unlike your potential.',
+        'Please wait... much like your career progress.',
+        'Thinking... something you should try.',
         'Calculating how stupid you are...',
         'Generating excuses...',
         'Loading your regrets...',
         'Compiling your failures...',
         'Preparing to disappoint you...',
         'Initializing existential dread...',
-        'Booting up your coping mechanisms...',
-        'Loading content you won\'t use...',
-        'Preparing to waste your time...',
-        'Calibrating your denial...'
+        'Booting up your coping mechanisms...'
     ];
     
     // Set random message
@@ -469,11 +469,11 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('beforeunload', () => {
     // Show a funny message when leaving
     const messages = [
-        'Are you sure you want to leave? Your problems will still be here when you get back.',
-        'Leaving so soon? We were just getting to the good part (the disappointment).',
-        'Wait! Don\'t go! We haven\'t even started judging you yet!',
-        'Your journey to self-improvement is only 0% complete!',
-        'But what about all the progress you haven\'t made?'
+        '404: Motivation not found.',
+        'Something went wrong. Just like your life choices.',
+        'Try again. And again. And again. Embrace the pain.',
+        'Error: User competence level insufficient.',
+        'Your journey to self-improvement is only 0% complete!'
     ];
     
     // Note: Modern browsers don't allow custom messages in beforeunload
@@ -494,7 +494,7 @@ document.addEventListener('keydown', (e) => {
     // Ctrl/Cmd + / to show help
     if ((e.ctrlKey || e.metaKey) && e.key === '/') {
         e.preventDefault();
-        alert('Help: Stop using this app. It\'s not helping you.');
+        alert('Help: Stop using this app. Something went wrong. Just like your life choices.');
     }
 });
 

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding | STUPID</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>\ud83e\udd21</text></svg>">
+    <style>
+        .onboarding-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--space-2xl);
+        }
+        
+        .onboarding-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .onboarding-step.active {
+            display: block;
+        }
+        
+        .onboarding-question {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        .onboarding-question h2 {
+            font-family: var(--font-secondary);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .onboarding-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .onboarding-option {
+            padding: var(--space-lg);
+            background: var(--neutral-50);
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+        }
+        
+        .onboarding-option:hover {
+            background: var(--primary-50);
+            border-color: var(--primary-300);
+            color: var(--primary-700);
+        }
+        
+        .onboarding-option.selected {
+            background: var(--primary-500);
+            border-color: var(--primary-500);
+            color: white;
+        }
+        
+        .onboarding-progress {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .onboarding-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--neutral-300);
+            transition: all var(--transition-fast);
+        }
+        
+        .onboarding-dot.active {
+            background: var(--primary-500);
+            width: 32px;
+        }
+        
+        .onboarding-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-top: var(--space-xl);
+        }
+        
+        .onboarding-complete {
+            text-align: center;
+            padding: var(--space-2xl);
+        }
+        
+        .achievement-badge {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            margin: var(--space-md) 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .achievement-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+        
+        .achievement-item {
+            background: white;
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .achievement-item:hover {
+            border-color: var(--primary-300);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .achievement-icon {
+            font-size: 2rem;
+        }
+        
+        .achievement-content {
+            flex: 1;
+        }
+        
+        .achievement-title {
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .achievement-description {
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">\ud83e\udd21</span>
+                <h1 class="logo-text">STUPID</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Onboarding Container -->
+    <div class="onboarding-container">
+        <div class="onboarding-progress">
+            <div class="onboarding-dot active" data-step="0"></div>
+            <div class="onboarding-dot" data-step="1"></div>
+            <div class="onboarding-dot" data-step="2"></div>
+            <div class="onboarding-dot" data-step="3"></div>
+        </div>
+
+        <!-- Step 1: Goal -->
+        <div class="onboarding-step active" id="step-0">
+            <div class="onboarding-question">
+                <h2>What's your goal?</h2>
+                <div class="onboarding-options">
+                    <div class="onboarding-option" data-value="Not dying">Not dying</div>
+                    <div class="onboarding-option" data-value="Looking alive on LinkedIn">Looking alive on LinkedIn</div>
+                    <div class="onboarding-option" data-value="Impressing people I don't like">Impressing people I don't like</div>
+                </div>
+            </div>
+            <div class="onboarding-buttons">
+                <button class="cta-button primary" id="next-btn" onclick="nextStep()">
+                    <span class="button-text">Commit to This Poor Decision</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Feeling -->
+        <div class="onboarding-step" id="step-1">
+            <div class="onboarding-question">
+                <h2>How do you feel today?</h2>
+                <div class="onboarding-options">
+                    <div class="onboarding-option" data-value="Surviving">Surviving</div>
+                    <div class="onboarding-option" data-value="Questioning everything">Questioning everything</div>
+                    <div class="onboarding-option" data-value="Crying internally">Crying internally</div>
+                </div>
+            </div>
+            <div class="onboarding-buttons">
+                <button class="cta-button outline" onclick="prevStep()">
+                    <span class="button-text">Give Up (Again)</span>
+                </button>
+                <button class="cta-button primary" id="next-btn" onclick="nextStep()">
+                    <span class="button-text">Feed Your Illusion of Progress</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Reason -->
+        <div class="onboarding-step" id="step-2">
+            <div class="onboarding-question">
+                <h2>What brings you here?</h2>
+                <div class="onboarding-options">
+                    <div class="onboarding-option" data-value="Desperation">Desperation</div>
+                    <div class="onboarding-option" data-value="Curiosity">Curiosity</div>
+                    <div class="onboarding-option" data-value="I was paid to download this">I was paid to download this</div>
+                </div>
+            </div>
+            <div class="onboarding-buttons">
+                <button class="cta-button outline" onclick="prevStep()">
+                    <span class="button-text">Give Up (Again)</span>
+                </button>
+                <button class="cta-button primary" id="next-btn" onclick="nextStep()">
+                    <span class="button-text">Pretend You'll Follow Through</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: Achievements -->
+        <div class="onboarding-step" id="step-3">
+            <div class="onboarding-complete">
+                <h2>Congratulations! You've completed onboarding.</h2>
+                <p>Here's what you've achieved so far:</p>
+                
+                <div class="achievement-list">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">\ud83c\udf89</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">You opened the app!</div>
+                            <div class="achievement-description">(First time's free.)</div>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">\ud83d\udc8c</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Answered questions!</div>
+                            <div class="achievement-description">(They were still stupid though.)</div>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">\u2611</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">Completed onboarding!</div>
+                            <div class="achievement-description">(We're as surprised as you are.)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Keep using the app to unlock more achievements like:</p>
+                <div class="achievement-list">
+                    <div class="achievement-item" style="opacity: 0.6;">
+                        <div class="achievement-icon">\ud83d\udd25</div>
+                        <div class="achievement-content">
+                            <div class="achievement-title">7-day streak!</div>
+                            <div class="achievement-description">(You've wasted 7 days consistently.)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="onboarding-buttons">
+                    <button class="cta-button primary large" onclick="completeOnboarding()">
+                        <span class="button-text">Start Your Journey</span>
+                        <span class="button-subtext">(To nowhere)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script>
+        let currentStep = 0;
+        const totalSteps = 4;
+        const userResponses = {};
+
+        function nextStep() {
+            // Save response
+            const selectedOption = document.querySelector('.onboarding-option.selected');
+            if (selectedOption) {
+                const questionIndex = currentStep;
+                const questionKeys = ['goal', 'feeling', 'reason'];
+                userResponses[questionKeys[questionIndex]] = selectedOption.dataset.value;
+            }
+
+            // Move to next step
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            currentStep = Math.min(currentStep + 1, totalSteps - 1);
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+
+            // Update progress dots
+            updateProgress();
+
+            // Update button text for last step
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn && currentStep === totalSteps - 1) {
+                nextBtn.style.display = 'none';
+            }
+        }
+
+        function prevStep() {
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            currentStep = Math.max(currentStep - 1, 0);
+            document.getElementById(`step-${currentStep}`).classList.add('active');
+
+            // Update progress dots
+            updateProgress();
+
+            // Restore button
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.style.display = 'block';
+            }
+        }
+
+        function updateProgress() {
+            document.querySelectorAll('.onboarding-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentStep);
+            });
+        }
+
+        function completeOnboarding() {
+            // Save onboarding completion
+            localStorage.setItem('stupid_onboarding_complete', 'true');
+            localStorage.setItem('stupid_user_responses', JSON.stringify(userResponses));
+
+            // Unlock initial achievements
+            const achievements = JSON.parse(localStorage.getItem('stupid_achievements')) || [];
+            achievements.push(
+                { id: 'first_open', title: 'You opened the app!', description: 'First time\'s free.', timestamp: new Date().toISOString() },
+                { id: 'onboarding_complete', title: 'Completed onboarding!', description: 'We\'re as surprised as you are.', timestamp: new Date().toISOString() }
+            );
+            localStorage.setItem('stupid_achievements', JSON.stringify(achievements));
+
+            // Redirect to home
+            window.location.href = '../index.html';
+        }
+
+        // Add click handlers for options
+        document.querySelectorAll('.onboarding-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selection from all options in the same step
+                const step = option.closest('.onboarding-step');
+                step.querySelectorAll('.onboarding-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Select this option
+                option.classList.add('selected');
+            });
+        });
+
+        // Console easter egg
+        console.log('%c STUPID Onboarding ', 'background: linear-gradient(135deg, #8b5cf6, #ec4899); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 5px;');
+        console.log('%c Welcome to the beginning of your disappointment. ', 'color: #666; font-size: 14px;');
+    </script>
+</body>
+</html>
